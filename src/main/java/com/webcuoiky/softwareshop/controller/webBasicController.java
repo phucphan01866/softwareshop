@@ -18,7 +18,7 @@ public class webBasicController {
 
         return "checkout";
     }
-    @RequestMapping("/category/product")
+    @RequestMapping("/product")
     public String product() {
 
         return "product";
