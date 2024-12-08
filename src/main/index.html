@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.com">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Electro - HTML Ecommerce Template</title>
+
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      th:href="@{/css/bootstrap.min.css}"
+    />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/slick.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{/css/slick-theme.css}" />
+
+    <!-- nouislider -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      th:href="@{/css/nouislider.min.css}"
+    />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <!-- Custom stlylesheet for list-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="resources\static\css\admin-list.css"
+    />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <table id="admin_list">
+      <tr>
+        <th>ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+        <th>Tình trạng</th>
+        <th>Danh mục</th>
+        <th>Thao tác</th>
+      </tr>
+      <tr>
+        <td class="pId">001</td>
+        <td class="pName">Adobe Premiere</td>
+        <td class="pPrice">199.000 ₫</td>
+        <td class="pStatus">Còn hàng</td>
+        <td class="pCategory">Đồ họa</td>
+        <td>
+          <div class="wrapper">
+            <button class="updateBtn">Sửa</button
+            ><button class="deleteBtn">Xóa</button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="pId">002</td>
+        <td class="pName">Winrar</td>
+        <td class="pPrice">0.00 ₫</td>
+        <td class="pStatus">Miễn phí</td>
+        <td class="pCategory">PM khác</td>
+        <td>
+          <div class="wrapper">
+            <button class="updateBtn">Sửa</button
+            ><button class="deleteBtn">Xóa</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

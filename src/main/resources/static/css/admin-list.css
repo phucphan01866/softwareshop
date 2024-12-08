@@ -1,0 +1,52 @@
+#admin_list {
+    width: 50%;
+    height: auto;
+    margin: auto;
+
+    td {
+        text-align: center;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        column-gap: 0.45rem;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            padding: 0.5rem 0.8rem;
+            border-radius: 5px;
+            color: aliceblue;
+            border: none;
+        }
+
+        .deleteBtn {
+            background-color: rgb(218, 39, 75);
+        }
+
+        .updateBtn {
+            background-color: rgb(0, 153, 10);
+        }
+    }
+
+    th,
+    td {
+        padding: 0.5rem;
+    }
+    td.pName {
+        text-align: left;
+        padding: inherit 1rem inherit 1rem;
+    }
+    td.pPrice {
+        text-align: right;
+        padding: inherit 1rem inherit 1rem;
+    }
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
