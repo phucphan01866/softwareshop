@@ -1,21 +1,29 @@
+#title {
+    font-size: 3rem;
+    text-align: center;
+    font-weigh: 600;
+}
 #admin_list {
-    width: 50%;
+    width: 100%;
     height: auto;
     margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
-    td {
+    td,th {
         text-align: center;
+        padding: 1.25rem;
     }
 
     .wrapper {
         display: flex;
         flex-direction: row;
-        column-gap: 0.45rem;
+        column-gap: 0.75rem;
         align-items: center;
         justify-content: center;
 
         button {
-            padding: 0.5rem 0.8rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 5px;
             color: aliceblue;
             border: none;
@@ -30,17 +38,14 @@
         }
     }
 
-    th,
-    td {
-        padding: 0.5rem;
-    }
+
     td.pName {
         text-align: left;
-        padding: inherit 1rem inherit 1rem;
+        padding: inherit 3rem inherit 3rem;
     }
     td.pPrice {
         text-align: right;
-        padding: inherit 1rem inherit 1rem;
+        padding: inherit 3rem inherit 3rem;
     }
 }
 

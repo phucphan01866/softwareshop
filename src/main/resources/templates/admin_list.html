@@ -30,6 +30,9 @@
 		<!-- Custom product page for admin -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
 
+		<!-- Custom product page for admin product list -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-list.css}"/>
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -52,87 +55,43 @@
 			<!-- container -->
 			<div class="container">
 				<!-- Form -->
-				<form id="input-form">
-					<!-- Main image -->
-					<div class="form_row">
-						<button>Chọn 1 ảnh đại diện</button>
-					</div>
-
-					<!-- Sub images -->
-					<div class="form_row">
-						<button>Chọn các ảnh phụ</button>
-					</div>
-
-					<!-- Name -->
-					<div class="form_row">
-						<label for="name">Tên sản phẩm</label>
-						<input
-								id="name"
-								class="inputText"
-								type="text"
-								name="productName"
-								placeholder="Nhập tên sản phẩm"
-						/>
-					</div>
-
-					<!-- Price -->
-					<div class="form_row">
-						<label for="price">Giá của sản phẩm</label>
-						<input
-								id="price"
-								class="inputText"
-								type="number"
-								name="productPrice"
-								placeholder="Giá sản phẩm"
-						/>
-					</div>
-
-					<div class="form_row">
-						<div id="form_special_row">
-							<!-- Category -->
-							<div class="form_block">
-								<label for="category">Danh mục:</label>
-								<select
-										id="category"
-										name="productPrice"
-										placeholder="Giá sản phẩm"
-								>
-									<option value="office">Văn phòng</option>
-									<option value="">Đồ họa</option>
-									<option value="">Âm thanh</option>
-									<option value="other">PM khác</option>
-								</select>
+				<p id="title">DANH SÁCH SẢN PHẨM</p>
+				<table id="admin_list">
+					<tr>
+						<th>ID</th>
+						<th>Tên sản phẩm</th>
+						<th>Giá</th>
+						<th>Tình trạng</th>
+						<th>Danh mục</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="pId">001</td>
+						<td class="pName"><a th:href=@{admin/category/product}>Adobe Premiere</a></td>
+						<td class="pPrice">199.000 ₫</td>
+						<td class="pStatus">Còn hàng</td>
+						<td class="pCategory">Đồ họa</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
 							</div>
-							<!-- Status -->
-							<div class="right">
-								<div class="form_block">
-									<label for="status">Còn hàng: </label>
-									<input id="status" type="checkbox" name="productStatus" />
-								</div>
-								<div class="form_block">
-									<label for="isFree">Miễn phí: </label>
-									<input id="isFree" type="checkbox" name="productIsFree" />
-								</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="pId">002</td>
+						<td class="pName"><a th:href=@{admin/category/product}>Winrar</a></td>
+						<td class="pPrice">0.00 ₫</td>
+						<td class="pStatus">Miễn phí</td>
+						<td class="pCategory">PM khác</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
 							</div>
-						</div>
-					</div>
-
-					<!-- Description -->
-					<div class="form_row">
-						<label for="description">Mô tả:</label>
-						<textarea
-								rows="20"
-								id="description"
-								class="inputText"
-								type="text"
-								name="productDescription"
-								placeholder="Nhập mô tả của sản phẩm"></textarea>
-					</div>
-					<!-- Main image -->
-					<div class="form_row" id="submitBtn">
-						<button>Cập nhật sản phẩm</button>
-					</div>
-				</form>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<!-- /container -->
 		</div>

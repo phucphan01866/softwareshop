@@ -27,8 +27,8 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
 
-		<!-- Custom product page for admin -->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
+		<!-- Custom stlylesheet for admin category list-->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-list.css}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,88 +51,60 @@
 		<div class="section">
 			<!-- container -->
 			<div class="container">
+				<p id="Title">DANH SÁCH DANH MỤC</p>
 				<!-- Form -->
-				<form id="input-form">
-					<!-- Main image -->
-					<div class="form_row">
-						<button>Chọn 1 ảnh đại diện</button>
-					</div>
-
-					<!-- Sub images -->
-					<div class="form_row">
-						<button>Chọn các ảnh phụ</button>
-					</div>
-
-					<!-- Name -->
-					<div class="form_row">
-						<label for="name">Tên sản phẩm</label>
-						<input
-								id="name"
-								class="inputText"
-								type="text"
-								name="productName"
-								placeholder="Nhập tên sản phẩm"
-						/>
-					</div>
-
-					<!-- Price -->
-					<div class="form_row">
-						<label for="price">Giá của sản phẩm</label>
-						<input
-								id="price"
-								class="inputText"
-								type="number"
-								name="productPrice"
-								placeholder="Giá sản phẩm"
-						/>
-					</div>
-
-					<div class="form_row">
-						<div id="form_special_row">
-							<!-- Category -->
-							<div class="form_block">
-								<label for="category">Danh mục:</label>
-								<select
-										id="category"
-										name="productPrice"
-										placeholder="Giá sản phẩm"
-								>
-									<option value="office">Văn phòng</option>
-									<option value="">Đồ họa</option>
-									<option value="">Âm thanh</option>
-									<option value="other">PM khác</option>
-								</select>
+				<table id="admin_list">
+					<tr>
+						<th>ID</th>
+						<th>Tên danh mục</th>
+						<th>Số lượng SP</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="cId">001</td>
+						<td class="cName">Văn phòng</td>
+						<td class="cNumber">1</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
 							</div>
-							<!-- Status -->
-							<div class="right">
-								<div class="form_block">
-									<label for="status">Còn hàng: </label>
-									<input id="status" type="checkbox" name="productStatus" />
-								</div>
-								<div class="form_block">
-									<label for="isFree">Miễn phí: </label>
-									<input id="isFree" type="checkbox" name="productIsFree" />
-								</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">002</td>
+						<td class="cName">Đồ họa</td>
+						<td class="cNumber">2</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
 							</div>
-						</div>
-					</div>
-
-					<!-- Description -->
-					<div class="form_row">
-						<label for="description">Mô tả:</label>
-						<textarea
-								rows="20"
-								id="description"
-								class="inputText"
-								type="text"
-								name="productDescription"
-								placeholder="Nhập mô tả của sản phẩm"></textarea>
-					</div>
-					<!-- Main image -->
-					<div class="form_row" id="submitBtn">
-						<button>Cập nhật sản phẩm</button>
-					</div>
-				</form>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">003</td>
+						<td class="cName">Âm thanh</td>
+						<td class="cNumber">3</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">004</td>
+						<td class="cName">PM khác</td>
+						<td class="cNumber">1</td>
+						<td>
+							<div class="wrapper">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+				</table>
 			</div>
 			<!-- /container -->
 		</div>

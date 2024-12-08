@@ -25,7 +25,7 @@ public class webBasicController {
     }
     @RequestMapping("/category")
     public String category() {
-
+    
         return "category";
     }
     @RequestMapping("/login")
