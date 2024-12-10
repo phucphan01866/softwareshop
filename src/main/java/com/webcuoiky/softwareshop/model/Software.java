@@ -1,9 +1,8 @@
 package com.webcuoiky.softwareshop.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Collection;
 
 @Entity
 @Table
@@ -17,6 +16,10 @@ public class Software {
     private Integer quantity;
     private String category;
     private String image;
+
+    @OneToMany(mappedBy = "software", fetch = FetchType.LAZY)
+    private Collection<Order_items> orderItems;
+
 
     public Integer getId() {
         return id;
@@ -82,4 +85,11 @@ public class Software {
         this.image = image;
     }
 
+    public Collection<Order_items> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Collection<Order_items> orderItems) {
+        this.orderItems = orderItems;
+    }
 }

@@ -1,17 +1,21 @@
 package com.webcuoiky.softwareshop.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.Collection;
 
+@Entity
+@Table
 public class User {
-    @Id
+    @Id @GeneratedValue
     private Integer id;
     private String name;
     private String email;
     private String password;
     private String role;
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Collection<Order> orders;
+
 
     public Integer getId() {
         return id;
@@ -51,5 +55,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Collection<com.webcuoiky.softwareshop.model.Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<com.webcuoiky.softwareshop.model.Order> orders) {
+        this.orders = orders;
     }
 }
