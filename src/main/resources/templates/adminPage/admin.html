@@ -27,11 +27,8 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
 
-		<!-- Custom product page for admin -->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
-
-		<!-- Custom product page for admin product list -->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-list.css}"/>
+		<!-- Custom stlylesheet for admin category list-->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin.css}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,47 +48,20 @@
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
-		<div class="section">
+		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<!-- Form -->
-				<p id="title">DANH SÁCH SẢN PHẨM</p>
-				<table id="admin_list">
-					<tr>
-						<th>ID</th>
-						<th>Tên sản phẩm</th>
-						<th>Giá</th>
-						<th>Tình trạng</th>
-						<th>Danh mục</th>
-						<th>Thao tác</th>
-					</tr>
-					<tr>
-						<td class="pId">001</td>
-						<td class="pName"><a th:href=@{admin/category/product}>Adobe Premiere</a></td>
-						<td class="pPrice">199.000 ₫</td>
-						<td class="pStatus">Còn hàng</td>
-						<td class="pCategory">Đồ họa</td>
-						<td>
-							<div class="wrapper">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="pId">002</td>
-						<td class="pName"><a th:href=@{admin/category/product}>Winrar</a></td>
-						<td class="pPrice">0.00 ₫</td>
-						<td class="pStatus">Miễn phí</td>
-						<td class="pCategory">PM khác</td>
-						<td>
-							<div class="wrapper">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
-							</div>
-						</td>
-					</tr>
-				</table>
+				<p id="title">QUẢN LÝ WEBSITE</p>
+				<div id="mainAdmin">
+					<div class="btnSection">
+						<a class="linkImg" th:href="@{admin/product-list}"><img th:src="@{/img/boxIcon.png}" alt=""></a>
+						<a class="linkText" th:href="@{admin/product-list}">Quản lý sản phẩm</a>
+					</div>
+					<div class="btnSection">
+						<a class="linkImg" th:href="@{admin/category}"><img th:src="@{/img/categoryIcon.png}" alt=""></a>
+						<a class="linkText" th:href="@{admin/category}">Quản lý danh mục</a>
+					</div>
+				</div>
 			</div>
 			<!-- /container -->
 		</div>

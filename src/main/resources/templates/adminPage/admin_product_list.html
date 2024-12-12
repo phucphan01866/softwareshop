@@ -27,8 +27,11 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
 
-		<!-- Custom stlylesheet for admin category list-->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-list.css}"/>
+		<!-- Custom product page for admin -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
+
+		<!-- Custom product page for admin product list -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin.css}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -48,57 +51,42 @@
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
-		<div class="section">
+		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<p id="Title">DANH SÁCH DANH MỤC</p>
-				<!-- Form -->
+				<!-- Table -->
+				<p id="title">DANH SÁCH SẢN PHẨM</p>
+				<div class="wrapper--horizonal reversed"><button class="button--add">Thêm sản phẩm</button></div>
 				<table id="admin_list">
 					<tr>
 						<th>ID</th>
-						<th>Tên danh mục</th>
-						<th>Số lượng SP</th>
+						<th>Tên sản phẩm</th>
+						<th>Giá</th>
+						<th>Tình trạng</th>
+						<th>Danh mục</th>
 						<th>Thao tác</th>
 					</tr>
 					<tr>
-						<td class="cId">001</td>
-						<td class="cName">Văn phòng</td>
-						<td class="cNumber">1</td>
+						<td class="pId">001</td>
+						<td class="pName"><a th:href=@{/admin/product-list/product}>Adobe Premiere</a></td>
+						<td class="pPrice">199.000 ₫</td>
+						<td class="pStatus">Còn hàng</td>
+						<td class="pCategory">Đồ họa</td>
 						<td>
-							<div class="wrapper">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn" onclick="window.location.href='/admin/product-list/product';">Sửa</button>
+								<button class="deleteBtn" onclick="window.location.href='/admin/product-list/product';">Xóa</button>
 							</div>
 						</td>
 					</tr>
 					<tr>
-						<td class="cId">002</td>
-						<td class="cName">Đồ họa</td>
-						<td class="cNumber">2</td>
+						<td class="pId">002</td>
+						<td class="pName"><a th:href=@{/admin/product-list/product}>Winrar</a></td>
+						<td class="pPrice">0.00 ₫</td>
+						<td class="pStatus">Miễn phí</td>
+						<td class="pCategory">PM khác</td>
 						<td>
-							<div class="wrapper">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="cId">003</td>
-						<td class="cName">Âm thanh</td>
-						<td class="cNumber">3</td>
-						<td>
-							<div class="wrapper">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="cId">004</td>
-						<td class="cName">PM khác</td>
-						<td class="cNumber">1</td>
-						<td>
-							<div class="wrapper">
+							<div class="wrapper--horizonal two--buttons">
 								<button class="updateBtn">Sửa</button
 								><button class="deleteBtn">Xóa</button>
 							</div>

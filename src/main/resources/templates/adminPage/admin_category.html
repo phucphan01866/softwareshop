@@ -51,16 +51,62 @@
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<div id="mainAdmin">
-					<div class="btnSection">
-						<a class="linkImg" th:href="@{admin/product-list}"><img th:src="@{/img/boxIcon.png}" alt=""></a>
-						<a class="linkText" th:href="@{admin/product-list}">Quản lý sản phẩm</a>
-					</div>
-					<div class="btnSection">
-						<a class="linkImg" th:href="@{admin/category}"><img th:src="@{/img/categoryIcon.png}" alt=""></a>
-						<a class="linkText" th:href="@{admin/category}">Quản lý danh mục</a>
-					</div>
-				</div>
+				<!-- Table -->
+				<p id="title">DANH SÁCH DANH MỤC</p>
+				<div class="wrapper--horizonal reversed"><button class="button--add">Thêm danh mục mới</button></div>
+				<table id="admin_list">
+					<tr>
+						<th>ID</th>
+						<th>Tên danh mục</th>
+						<th>Số lượng SP</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="cId">001</td>
+						<td class="cName">Văn phòng</td>
+						<td class="cNumber">1</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">002</td>
+						<td class="cName">Đồ họa</td>
+						<td class="cNumber">2</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">003</td>
+						<td class="cName">Âm thanh</td>
+						<td class="cNumber">3</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="cId">004</td>
+						<td class="cName">PM khác</td>
+						<td class="cNumber">1</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+				<!-- /Table -->
 			</div>
 			<!-- /container -->
 		</div>

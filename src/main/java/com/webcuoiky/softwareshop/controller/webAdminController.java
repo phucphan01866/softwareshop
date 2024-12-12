@@ -10,21 +10,21 @@ public class webAdminController {
     @RequestMapping("")
     public  String admin() {
 
-        return "admin";
+        return "adminPage/admin";
     }
     @RequestMapping("/product-list/product")
     public  String product() {
 
-        return "admin_product";
+        return "adminPage/admin_product";
     }
     @RequestMapping("/category")
     public  String category_list() {
 
-        return "admin_category";
+        return "adminPage/admin_category";
     }
     @RequestMapping("/product-list")
     public  String product_list() {
 
-        return "admin_product_list";
+        return "adminPage/admin_product_list";
     }
 }
