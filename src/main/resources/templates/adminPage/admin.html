@@ -27,8 +27,9 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
 
-		<!-- Custom Login Page -->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/loginAndRegis.css}"/>
+		<!-- Custom stlylesheet for admin category list-->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin.css}"/>
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -36,43 +37,31 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-	</head>
-		<body>
-		<!-- HEADER -->
+    </head>
+	<body>
+	<!-- HEADER -->
 		<header th:replace="~{common/header :: header}"/>
 		<!-- /HEADER -->
 
+		<!-- BREADCRUMB -->
+		<div th:replace="~{common/breadcrumb :: breadcrumb}"/>
+		<!-- /BREADCRUMB -->
+
 		<!-- SECTION -->
-		<div class="section">
+		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="main-content login">
-						<form class="form">
-							<div class="title">Đăng nhập</div>
-							<input type="text" class="input-field email" placeholder="Email" />
-							<input
-									type="password"
-									class="input-field password"
-									placeholder="Mật khẩu"
-							/>
-							<a class="link-forgot-password" href="#">Quên mật khẩu?</a>
-							<button class="submit-button">Đăng nhập</button>
-							<div class="register">
-								<span class="register-text">Chưa có tài khoản? </span>
-								<a class="link-regis" th:href="@{/register}">Đăng ký</a>
-							</div>
-						</form>
-						<img
-								class="promo-img"
-								src="./img/login-img.png"
-								alt="Promo Image"
-						/>
+				<p id="title">QUẢN LÝ WEBSITE</p>
+				<div id="mainAdmin">
+					<div class="btnSection">
+						<a class="linkImg" th:href="@{admin/product-list}"><img th:src="@{/img/boxIcon.png}" alt=""></a>
+						<a class="linkText" th:href="@{admin/product-list}">Quản lý sản phẩm</a>
 					</div>
-					<!-- /shop -->
+					<div class="btnSection">
+						<a class="linkImg" th:href="@{admin/category}"><img th:src="@{/img/categoryIcon.png}" alt=""></a>
+						<a class="linkText" th:href="@{admin/category}">Quản lý danh mục</a>
+					</div>
 				</div>
-				<!-- /row -->
 			</div>
 			<!-- /container -->
 		</div>
@@ -83,12 +72,12 @@
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/slick.min.js}"></script>
+		<script th:src="@{/js/nouislider.min.js}"></script>
+		<script th:src="@{/js/jquery.zoom.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
 
 	</body>
 </html>
