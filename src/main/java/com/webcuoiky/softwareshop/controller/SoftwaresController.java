@@ -18,7 +18,7 @@ public class SoftwaresController {
 
     @Autowired
     SessionFactory factory;
-    @RequestMapping("/softwares")
+    @RequestMapping("softwares")
     public String showSoftwares(ModelMap model) {
         return "software/softwares";
     }
@@ -32,9 +32,9 @@ public class SoftwaresController {
         return list;
     }
 
-    @RequestMapping("software_detail/{id}")
-    public String sofwareDetail(@PathVariable ("id") int id, ModelMap model) {
-        Session session = factory.getCurrentSession();
+    @RequestMapping("/software_detail/{id}")
+    public String softwareDetail(@PathVariable ("id") int id, ModelMap model) {
+        Session session = factory.openSession();
         Software software = (Software) session.get(Software.class, id);
         model.addAttribute("software_detail", software);
         return "software/software_detail";
