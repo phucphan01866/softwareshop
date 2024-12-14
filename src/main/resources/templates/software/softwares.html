@@ -293,9 +293,21 @@
 											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 										</div>
 									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div>
+
+									<form th:action="@{/softwares/addToCart}" method="post">
+										<input type="hidden" name="id" th:value="${s.id}">
+										<input type="hidden" name="name" th:value="${s.name}">
+										<input type="hidden" name="image" th:value="${s.image}">
+										<input type="hidden" name="price" th:value="${s.price}">
+										<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+										<input type="hidden" name="quantity" value="1" min="1">
+										<div class="add-to-cart">
+											<button class="add-to-cart-btn" type="submit">
+												<i class="fa fa-shopping-cart"></i> Add to Cart
+											</button>
+										</div>
+									</form>
+
 								</div>
 							</div>
 
