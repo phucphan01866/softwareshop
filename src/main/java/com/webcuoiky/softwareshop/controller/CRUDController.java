@@ -8,10 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import com.webcuoiky.softwareshop.services.SoftwareRepository;
 
 import java.util.List;
@@ -45,24 +42,24 @@ public class CRUDController {
     @Autowired
     private SoftwareRepository repo;
 
-    @GetMapping("product-listt")
+    @GetMapping("product-list")
     public String showSoftwareList(Model model) {
-        List<Software> softwareList = repo.findAll(Sort.by(Sort.Direction.DESC, "name"));
+        List<Software> softwareList = repo.findAll(Sort.by(Sort.Direction.DESC, "id"));
         model.addAttribute("softwares", softwareList);
         return "adminPage/admin_product_list";
     }
 
-    @GetMapping("product-list/product")
+    @GetMapping("product-list/add-product")
     public String showCreatePage(Model model) {
         SoftwareDTO softwareDTO = new SoftwareDTO();
         model.addAttribute("softwareDTO", softwareDTO);
-        return "adminPage/admin_product";
+        return "adminPage/admin_add_product";
     }
-    @PostMapping("product-list/product")
+    @PostMapping("product-list/add-product")
     public String createSoftware(@Valid @ModelAttribute SoftwareDTO softwareDTO, BindingResult result)
     {
         if (result.hasErrors()) {
-            return "adminPage/admin_product";
+            return "adminPage/admin_add_product";
         }
 
         Software software = new Software();
@@ -70,10 +67,77 @@ public class CRUDController {
         software.setDescription(softwareDTO.getDescription());
         software.setCategory(softwareDTO.getCategory());
         software.setPrice(softwareDTO.getPrice());
-        //software.setQuantity(softwareDTO.getQuantity());
+        software.setQuantity(softwareDTO.getQuantity());
 
         repo.save(software);
-        return "adminPage/admin_product_list";
+        return "redirect:/admin/product-list";
+    }
+
+    @GetMapping("product-list/update-product")
+    public String showUpdatePage(Model model,
+                                 @RequestParam int id)
+    {
+        try{
+            Software software = repo.findById(id).get();
+            model.addAttribute("softwareDTO", software);
+
+            SoftwareDTO softwareDTO = new SoftwareDTO();
+            softwareDTO.setName(software.getName());
+            softwareDTO.setDescription(software.getDescription());
+            softwareDTO.setCategory(software.getCategory());
+            softwareDTO.setPrice(software.getPrice());
+            softwareDTO.setQuantity(software.getQuantity());
+
+            model.addAttribute("softwareDTO", softwareDTO);
+        }
+        catch (Exception ex){
+            System.out.println("Exception" + ex.getMessage());
+            return "adminPage/admin_product_list";
+        }
+        return "adminPage/admin_update_product";
+    }
+
+    @PostMapping("product-list/update-product")
+    public String updateSoftware(@Valid @ModelAttribute SoftwareDTO softwareDTO,
+                                 BindingResult result,
+                                 Model model,
+                                 @RequestParam int id){
+
+        try{
+            Software software = repo.findById(id).get();
+            model.addAttribute("softwareDTO", softwareDTO);
+            if(result.hasErrors()) {
+                return "adminPage/admin_update_product";
+            }
+
+            software.setName(softwareDTO.getName());
+            software.setDescription(softwareDTO.getDescription());
+            software.setCategory(softwareDTO.getCategory());
+            software.setPrice(softwareDTO.getPrice());
+            software.setQuantity(softwareDTO.getQuantity());
+
+            repo.save(software);
+
+        }
+        catch (Exception ex){
+            System.out.println("Exception" + ex.getMessage());
+        }
+
+        return "redirect:/admin/product-list";
+    }
+
+    @GetMapping("product-list/delete")
+    public String deleteProduct (
+            @RequestParam int id
+    ){
+        try{
+            Software software = repo.findById(id).get();
+            repo.delete(software);
+        }
+        catch (Exception ex){
+            System.out.println("Exception" + ex.getMessage());
+        }
+        return "redirect:/admin/product-list";  //chuyển hướng về admin/product-list
     }
 
 

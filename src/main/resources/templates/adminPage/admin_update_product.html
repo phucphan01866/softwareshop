@@ -53,7 +53,7 @@
 			<div class="container">
 				<p id="title">CẬP NHẬT SẢN PHẨM</p>
 				<!-- Form -->
-				<form id="input-form">
+				<form id="input-form" method="post" enctype="multipart/form-data" th:object="${softwareDTO}">
 					<!-- Main image -->
 					<div class="form_row">
 						<button>Chọn 1 ảnh đại diện</button>
@@ -74,6 +74,7 @@
 								type="text"
 								name="productName"
 								placeholder="Nhập tên sản phẩm"
+								th:field="${softwareDTO.name}"
 						/>
 					</div>
 
@@ -87,6 +88,7 @@
 								type="number"
 								name="productPrice"
 								placeholder="Giá sản phẩm"
+								th:field="${softwareDTO.price}"
 						/>
 					</div>
 
@@ -99,6 +101,7 @@
 										id="category"
 										name="productPrice"
 										placeholder="Giá sản phẩm"
+										th:field="${softwareDTO.category}"
 								>
 									<option value="office">Văn phòng</option>
 									<option value="">Đồ họa</option>
@@ -116,6 +119,8 @@
 											type="number"
 											name="productQuantity"
 											placeholder="Số lượng"
+											th:field="${softwareDTO.quantity}"
+
 									/>
 								</div>
 							</div>
@@ -131,7 +136,9 @@
 								class="inputText"
 								type="text"
 								name="productDescription"
-								placeholder="Nhập mô tả của sản phẩm"></textarea>
+								placeholder="Nhập mô tả của sản phẩm"
+								th:field="${softwareDTO.description}"
+						></textarea>
 					</div>
 					<!-- Main image -->
 					<div class="form_row" id="submitBtn">

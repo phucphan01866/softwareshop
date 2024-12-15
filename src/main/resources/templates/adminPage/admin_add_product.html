@@ -114,6 +114,7 @@
 								</select>
 								<p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger"
 								   th:errors="${softwareDTO.category}"></p>
+
 							</div>
 							<!-- Số lượng sản phẩm trong kho -->
 							<div class="right">
@@ -125,7 +126,10 @@
 											type="number"
 											name="productQuantity"
 											placeholder="Số lượng"
+											th:field="${softwareDTO.quantity}"
 									/>
+									<p th:if="${#fields.hasErrors('quantity')}" th:errorclass="text-danger"
+									   th:errors="${softwareDTO.quantity}"></p>
 								</div>
 							</div>
 						</div>
@@ -143,6 +147,8 @@
 								placeholder="Nhập mô tả của sản phẩm"
 								th:field="${softwareDTO.description}"
 						></textarea>
+						<p th:if="${#fields.hasErrors('description')}" th:errorclass="text-danger"
+						   th:errors="${softwareDTO.description}"></p>
 					</div>
 					<!-- Main image -->
 					<div class="form_row" id="submitBtn">

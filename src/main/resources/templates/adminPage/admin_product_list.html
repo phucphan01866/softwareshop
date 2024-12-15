@@ -56,7 +56,10 @@
 			<div class="container">
 				<!-- Table -->
 				<p id="title">DANH SÁCH SẢN PHẨM</p>
-				<div class="wrapper--horizonal reversed"><button class="button--add">Thêm sản phẩm</button></div>
+				<div class="wrapper--horizonal reversed"><button class="button--add" onclick="window.location.href='/admin/product-list/add-product';">
+					Thêm sản phẩm
+				</button>
+				</div>
 				<table id="admin_list">
 					<tr>
 						<th>ID</th>
@@ -74,8 +77,10 @@
 						<td class="pCategory" th:text="${s.category}"></td>
 						<td>
 							<div class="wrapper--horizonal two--buttons">
-								<button class="updateBtn" onclick="window.location.href='/admin/product-list/product';">Sửa</button>
-								<button class="deleteBtn" onclick="window.location.href='/admin/product-list/product';">Xóa</button>
+								<a class="updateBtn" th:href="@{/admin/product-list/update-product(id=${s.id})}">
+									Sửa
+								</a>
+								<a class="deleteBtn" th:href="@{/admin/product-list/delete(id=${s.id})}">Xóa</a>
 							</div>
 						</td>
 					</tr>

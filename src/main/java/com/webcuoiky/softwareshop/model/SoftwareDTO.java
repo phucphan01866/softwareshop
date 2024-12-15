@@ -9,21 +9,20 @@ public class SoftwareDTO {
     @NotEmpty(message = "The name is required")
     private String name;
 
-    @NotEmpty(message = "The dec description required")
+    @NotEmpty(message = "Mô tả sản phẩm không được bỏ trống")
     private String description;
 
     //@NotEmpty(message = "The dec price required")
     @NotNull(message = "The dec price required") //float nên là notnull thay vì notempty
     private Float price;
 
-
     private Float sale_price;
 
     //@NotEmpty(message = "The dec quantity required")
-    //@NotNull(message = "The dec price required")
+    @NotNull(message = "Số lượng không được bỏ trống")
     private Integer quantity;
 
-    @NotEmpty(message = "The dec category required")
+    @NotEmpty(message = "The category required")
     private String category;
 
     //@NotEmpty(message = "The dec image required")
@@ -41,15 +40,15 @@ public class SoftwareDTO {
         return description;
     }
 
-    public void setDescription(@NotEmpty(message = "The dec description required") String description) {
+    public void setDescription(@NotEmpty(message = "The description required") String description) {
         this.description = description;
     }
 
-    public @NotNull(message = "The dec price required") Float getPrice() {
+    public @NotNull(message = "The price required") Float getPrice() {
         return price;
     }
 
-    public void setPrice(@NotNull(message = "The dec price required") Float price) {
+    public void setPrice(@NotNull(message = "Chưa nhập giá tiền") Float price) {
         this.price = price;
     }
 
@@ -61,15 +60,15 @@ public class SoftwareDTO {
         this.sale_price = sale_price;
     }
 
-//    public @NotEmpty(message = "The dec quantity required") Integer getQuantity() {
-//        return quantity;
-//    }
+    public @NotNull(message = "Số lượng không được bỏ trống") Integer getQuantity() {
+        return quantity;
+    }
 
-//    public void setQuantity(@NotEmpty(message = "The dec quantity required") Integer quantity) {
-//        this.quantity = quantity;
-//    }
+    public void setQuantity(@NotNull(message = "Số lượng không được bỏ trống") Integer quantity) {
+        this.quantity = quantity;
+    }
 
-    public @NotEmpty(message = "The dec category required") String getCategory() {
+    public @NotEmpty(message = "Chưa chọn danh mục") String getCategory() {
         return category;
     }
 
