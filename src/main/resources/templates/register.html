@@ -49,21 +49,17 @@
 				<!-- row -->
 				<div class="row">
 					<div class="main-content register">
-						<form class="form">
+						<form class="form" th:action="@{/register}" th:method="post">
 							<div class="title">Đăng ký</div>
-							<input type="text" class="input-field name" placeholder="Họ và tên" />
-							<input type="text" class="input-field email" placeholder="Email" />
-							<input
-									type="text"
-									class="input-field number"
-									placeholder="Số điện thoại"
-							/>
-							<input
-									type="password"
-									class="input-field password"
-									placeholder="Mật khẩu"
-							/>
-							<button class="submit-button">Tạo tài khoản</button>
+							<div th:if="${error}" class="alert alert-danger">
+								<p th:text="${error}"></p>
+							</div>
+							<input type="text" class="input-field name" name="name" placeholder="Họ và tên" required />
+							<input type="email" class="input-field email" name="email" placeholder="Email" required />
+							<input type="text" class="input-field number" name="phone" placeholder="Số điện thoại" required />
+							<input type="password" class="input-field password" name="password" placeholder="Mật khẩu" required />
+							<button type="submit" class="submit-button">Tạo tài khoản</button>
+
 							<div class="register">
 								<span class="register-text">Đã có tài khoản? </span>
 								<a class="link" th:href="@{/login}">Đăng nhập</a>
