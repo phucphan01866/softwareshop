@@ -55,6 +55,10 @@ Table OF Contents
 	Typography
 \*----------------------------*/
 
+flex-center {
+
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -187,6 +191,11 @@ textarea.input {
   background: #FFF;
   border: 1px solid #E4E7ED;
   height: 40px;
+  text-align: center;
+  option {
+    text-align: left;
+
+  }
 }
 
 /*-- checkbox & radio input --*/
@@ -464,10 +473,12 @@ header {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  padding: 15px 0px
 }
 
 .header-search form {
+  display: flex;
+  justify-content: center;
   position: relative;
 }
 
@@ -477,13 +488,13 @@ header {
 }
 
 .header-search form .input {
-  width: calc(100% - 260px);
+  width: 100%;
   margin-right: -4px;
 }
 
 .header-search form .search-btn {
   height: 40px;
-  width: 100px;
+  width: 200px;
   background: #D10024;
   color: #FFF;
   font-weight: 700;

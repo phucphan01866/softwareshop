@@ -12,10 +12,15 @@ public class webAdminController {
 
         return "adminPage/admin";
     }
-    @RequestMapping("/product-list/product")
-    public  String product() {
+    @RequestMapping("/product-list/update-product")
+    public  String productUpdate() {
 
-        return "adminPage/admin_product";
+        return "adminPage/admin_update_product";
+    }
+    @RequestMapping("/product-list/add-product")
+    public  String productAdd() {
+
+        return "adminPage/admin_add_product";
     }
     @RequestMapping("/category")
     public  String category_list() {

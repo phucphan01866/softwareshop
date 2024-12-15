@@ -51,7 +51,7 @@
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<p id="title">TẠO VÀ CẬP NHẬT SẢN PHẨM</p>
+				<p id="title">CẬP NHẬT SẢN PHẨM</p>
 				<!-- Form -->
 				<form id="input-form">
 					<!-- Main image -->
@@ -106,15 +106,17 @@
 									<option value="other">PM khác</option>
 								</select>
 							</div>
-							<!-- Status -->
+							<!-- Số lượng sản phẩm trong kho -->
 							<div class="right">
 								<div class="form_block">
-									<label for="status">Còn hàng: </label>
-									<input id="status" type="checkbox" name="productStatus" />
-								</div>
-								<div class="form_block">
-									<label for="isFree">Miễn phí: </label>
-									<input id="isFree" type="checkbox" name="productIsFree" />
+									<label for="quantity">Số lượng trong kho: </label>
+									<input
+											id="quantity"
+											class="inputText"
+											type="number"
+											name="productQuantity"
+											placeholder="Số lượng"
+									/>
 								</div>
 							</div>
 						</div>
