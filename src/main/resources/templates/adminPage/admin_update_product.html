@@ -51,9 +51,9 @@
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<p id="title">TẠO VÀ CẬP NHẬT SẢN PHẨM</p>
+				<p id="title">CẬP NHẬT SẢN PHẨM</p>
 				<!-- Form -->
-				<form id="input-form" method="post" enctype="multipart/form-data" th:object="${softwareDTO}">
+				<form id="input-form">
 					<!-- Main image -->
 					<div class="form_row">
 						<button>Chọn 1 ảnh đại diện</button>
@@ -74,10 +74,7 @@
 								type="text"
 								name="productName"
 								placeholder="Nhập tên sản phẩm"
-								th:field="${softwareDTO.name}"
 						/>
-						<p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger"
-							th:errors="${softwareDTO.name}"></p>
 					</div>
 
 					<!-- Price -->
@@ -90,10 +87,7 @@
 								type="number"
 								name="productPrice"
 								placeholder="Giá sản phẩm"
-								th:field="${softwareDTO.price}"
 						/>
-						<p th:if="${#fields.hasErrors('price')}" th:errorclass="text-danger"
-						   th:errors="${softwareDTO.price}"></p>
 					</div>
 
 					<div class="form_row">
@@ -105,25 +99,24 @@
 										id="category"
 										name="productPrice"
 										placeholder="Giá sản phẩm"
-										th:field="${softwareDTO.category}"
 								>
 									<option value="office">Văn phòng</option>
 									<option value="">Đồ họa</option>
 									<option value="">Âm thanh</option>
 									<option value="other">PM khác</option>
 								</select>
-								<p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger"
-								   th:errors="${softwareDTO.category}"></p>
 							</div>
-							<!-- Status -->
+							<!-- Số lượng sản phẩm trong kho -->
 							<div class="right">
 								<div class="form_block">
-									<label for="status">Còn hàng: </label>
-									<input id="status" type="checkbox" name="productStatus" />
-								</div>
-								<div class="form_block">
-									<label for="isFree">Miễn phí: </label>
-									<input id="isFree" type="checkbox" name="productIsFree" />
+									<label for="quantity">Số lượng trong kho: </label>
+									<input
+											id="quantity"
+											class="inputText"
+											type="number"
+											name="productQuantity"
+											placeholder="Số lượng"
+									/>
 								</div>
 							</div>
 						</div>
@@ -138,9 +131,7 @@
 								class="inputText"
 								type="text"
 								name="productDescription"
-								placeholder="Nhập mô tả của sản phẩm"
-								th:field="${softwareDTO.description}"
-						></textarea>
+								placeholder="Nhập mô tả của sản phẩm"></textarea>
 					</div>
 					<!-- Main image -->
 					<div class="form_row" id="submitBtn">
