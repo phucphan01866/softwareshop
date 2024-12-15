@@ -56,7 +56,10 @@
 				<form id="input-form" method="post" enctype="multipart/form-data" th:object="${softwareDTO}">
 					<!-- Main image -->
 					<div class="form_row">
-						<button>Chọn 1 ảnh đại diện</button>
+
+						<label>Chọn 1 ảnh đại diện</label>
+						<input type="file" th:field="${softwareDTO.image}">
+
 					</div>
 
 

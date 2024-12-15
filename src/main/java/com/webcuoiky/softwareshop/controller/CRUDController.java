@@ -10,34 +10,20 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import com.webcuoiky.softwareshop.services.SoftwareRepository;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin/")
 public class CRUDController {
-//    @Autowired
-//    SessionFactory factory;
-//    @RequestMapping ("product-listt")
-//    public String product_list(Model model)
-//    {
-//        return "adminPage/admin_product_list";
-//    }
-//
-//    @RequestMapping("product-listt/product")
-//    public String update_product(Model model)
-//    {
-//        return "adminPage/admin_product";
-//    }
-//
-//    @ModelAttribute("softwares")
-//    public List<Software> getSoftwares() {
-//        Session session = factory.openSession();
-//        String hql ="FROM Software";
-//        Query query = session.createQuery(hql);
-//        List<Software> list = query.list();
-//        return list;
-//    }
 
     @Autowired
     private SoftwareRepository repo;
@@ -62,16 +48,38 @@ public class CRUDController {
             return "adminPage/admin_add_product";
         }
 
+        MultipartFile image = softwareDTO.getImage();
+        Date createDate = new Date();
+        String storageFileName = createDate.getTime() + "_" + image.getOriginalFilename();
+
+        try {
+            String uploadDir = "src/main/resources/static/img_software/";
+            Path uploadPath = Paths.get(uploadDir);
+
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+            try (InputStream inputStream = image.getInputStream()) {
+                Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
+        } catch (IOException ex) {
+            System.out.println("exception"+ex.getMessage());
+        }
+
         Software software = new Software();
         software.setName(softwareDTO.getName());
         software.setDescription(softwareDTO.getDescription());
         software.setCategory(softwareDTO.getCategory());
         software.setPrice(softwareDTO.getPrice());
         software.setQuantity(softwareDTO.getQuantity());
+        software.setImage(storageFileName);
 
         repo.save(software);
         return "redirect:/admin/product-list";
     }
+
+
 
     @GetMapping("product-list/update-product")
     public String showUpdatePage(Model model,
@@ -110,6 +118,27 @@ public class CRUDController {
                 return "adminPage/admin_update_product";
             }
 
+            if (!softwareDTO.getImage().isEmpty()) {
+                //xoá ảnh cũ
+                String uploadDir = "src/main/resources/static/img_software/";
+                Path oldImagePath = Paths.get(uploadDir + software.getImage());
+
+            try{
+                Files.delete(oldImagePath);
+            }
+            catch (Exception ex){
+                System.out.println("Exception" + ex.getMessage());
+            }
+            MultipartFile image = softwareDTO.getImage();
+            Date createDate = new Date();
+            String storageFileName = createDate.getTime() + "_" + image.getOriginalFilename();
+
+            try (InputStream inputStream = image.getInputStream()) {
+                Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
+                        StandardCopyOption.REPLACE_EXISTING);
+            }
+            software.setImage(storageFileName);
+            }
             software.setName(softwareDTO.getName());
             software.setDescription(softwareDTO.getDescription());
             software.setCategory(softwareDTO.getCategory());
@@ -125,6 +154,8 @@ public class CRUDController {
 
         return "redirect:/admin/product-list";
     }
+
+
 
     @GetMapping("product-list/delete")
     public String deleteProduct (

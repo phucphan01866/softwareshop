@@ -2,23 +2,26 @@ package com.webcuoiky.softwareshop.model;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.springframework.web.multipart.MultipartFile;
 
 //import jakarta.validation.constraints.NotEmpty;
 //CRUD
 public class SoftwareDTO {
-    @NotEmpty(message = "The name is required")
+    @NotEmpty(message = "Tên không được bỏ trống")
     private String name;
 
     @NotEmpty(message = "Mô tả sản phẩm không được bỏ trống")
+    @Size(min = 10, message = "Mô tả sản phẩm tối thiểu 10 kí tự")
+    @Size(max = 1000, message = "Mô tả sản phẩm tối đa 1000 kí tự")
     private String description;
 
     //@NotEmpty(message = "The dec price required")
-    @NotNull(message = "The dec price required") //float nên là notnull thay vì notempty
+    @NotNull(message = "The price required") //float nên là notnull thay vì notempty
     private Float price;
 
     private Float sale_price;
 
-    //@NotEmpty(message = "The dec quantity required")
     @NotNull(message = "Số lượng không được bỏ trống")
     private Integer quantity;
 
@@ -26,7 +29,15 @@ public class SoftwareDTO {
     private String category;
 
     //@NotEmpty(message = "The dec image required")
-    private String image;
+    private MultipartFile image;
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
 
     public @NotEmpty(message = "Tên không được bỏ trống") String getName() {
         return name;
@@ -76,11 +87,5 @@ public class SoftwareDTO {
         this.category = category;
     }
 
-    public String getImage() {
-        return image;
-    }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
 }
