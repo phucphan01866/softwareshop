@@ -10,15 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class webBasicController {
     @RequestMapping(value={"/","/index"})
     public String index() {
-
         return "index";
     }
-    @RequestMapping("/checkout")
-    public String checkout() {
-
-        return "checkout";
-    }
-    @RequestMapping("/category/product")
+//    @RequestMapping("/checkout")
+//    public String checkout() {
+//
+//        return "checkout";
+//    }
+    @RequestMapping("/product")
     public String product() {
 
         return "product";
