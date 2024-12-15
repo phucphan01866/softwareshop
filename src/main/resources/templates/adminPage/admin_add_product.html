@@ -27,10 +27,7 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
 
-		<!-- Custom product page for admin -->
-		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
-
-		<!-- Custom product page for admin product list -->
+		<!-- Custom product page for product page in admin -->
 		<link type="text/css" rel="stylesheet" th:href="@{/css/admin.css}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -54,45 +51,93 @@
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<!-- Table -->
-				<p id="title">DANH SÁCH SẢN PHẨM</p>
-				<div class="wrapper--horizonal reversed"><button class="button--add" onclick="window.location.href='/admin/product-list/add-product';">Thêm sản phẩm</button></div>
-				<table id="admin_list">
-					<tr>
-						<th>ID</th>
-						<th>Tên sản phẩm</th>
-						<th>Giá</th>
-						<th>Tình trạng</th>
-						<th>Danh mục</th>
-						<th>Thao tác</th>
-					</tr>
-					<tr>
-						<td class="pId">001</td>
-						<td class="pName"><a th:href=@{/admin/product-list/update-product}>Adobe Premiere</a></td>
-						<td class="pPrice">199.000 ₫</td>
-						<td class="pStatus">Còn hàng</td>
-						<td class="pCategory">Đồ họa</td>
-						<td>
-							<div class="wrapper--horizonal two--buttons">
-								<button class="updateBtn" onclick="window.location.href='/admin/product-list/update-product';">Sửa</button>
-								<button class="deleteBtn" onclick="window.location.href='/admin/product-list/delete-product';">Xóa</button>
+				<p id="title">TẠO SẢN PHẨM MỚI</p>
+				<!-- Form -->
+				<form id="input-form">
+					<!-- Main image -->
+					<div class="form_row">
+						<button>Chọn 1 ảnh đại diện</button>
+					</div>
+
+
+					<!-- Sub images -->
+					<div class="form_row">
+						<button>Chọn các ảnh phụ</button>
+					</div>
+
+					<!-- Name -->
+					<div class="form_row">
+						<label for="name">Tên sản phẩm</label>
+						<input
+								id="name"
+								class="inputText"
+								type="text"
+								name="productName"
+								placeholder="Nhập tên sản phẩm"
+						/>
+					</div>
+
+					<!-- Price -->
+					<div class="form_row">
+						<label for="price">
+							Giá của sản phẩm</label>
+						<input
+								id="price"
+								class="inputText"
+								type="number"
+								name="productPrice"
+								placeholder="Giá sản phẩm"
+						/>
+					</div>
+
+					<div class="form_row">
+						<div id="form_special_row">
+							<!-- Category -->
+							<div class="form_block">
+								<label for="category">Danh mục:</label>
+								<select
+										id="category"
+										name="productPrice"
+										placeholder="Giá sản phẩm"
+								>
+									<option value="office">Văn phòng</option>
+									<option value="">Đồ họa</option>
+									<option value="">Âm thanh</option>
+									<option value="other">PM khác</option>
+								</select>
 							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="pId">002</td>
-						<td class="pName"><a th:href=@{/admin/product-list/product}>Winrar</a></td>
-						<td class="pPrice">0.00 ₫</td>
-						<td class="pStatus">Miễn phí</td>
-						<td class="pCategory">PM khác</td>
-						<td>
-							<div class="wrapper--horizonal two--buttons">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
+							<!-- Số lượng sản phẩm trong kho -->
+							<div class="right">
+								<div class="form_block">
+									<label for="quantity">Số lượng trong kho: </label>
+									<input
+											id="quantity"
+											class="inputText"
+											type="number"
+											name="productQuantity"
+											placeholder="Số lượng"
+									/>
+								</div>
 							</div>
-						</td>
-					</tr>
-				</table>
+						</div>
+					</div>
+
+					<!-- Description -->
+					<div class="form_row">
+						<label for="description">Mô tả:</label>
+						<textarea
+								rows="20"
+								id="description"
+								class="inputText"
+								type="text"
+								name="productDescription"
+								placeholder="Nhập mô tả của sản phẩm"></textarea>
+					</div>
+					<!-- Main image -->
+					<div class="form_row" id="submitBtn">
+						<button>Cập nhật sản phẩm</button>
+					</div>
+				</form>
 			</div>
 			<!-- /container -->
 		</div>
