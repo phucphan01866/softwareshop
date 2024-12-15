@@ -10,4 +10,5 @@ public class SoftwareshopApplication {
 		SpringApplication.run(SoftwareshopApplication.class, args);
 	}
 
+
 }
