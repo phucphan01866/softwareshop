@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table
+@Table (name="software")
 public class Software {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;

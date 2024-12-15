@@ -16,7 +16,7 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Collection<Order> orders;
 
-
+    
     public Integer getId() {
         return id;
     }

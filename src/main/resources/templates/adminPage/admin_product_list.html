@@ -66,12 +66,12 @@
 						<th>Danh mục</th>
 						<th>Thao tác</th>
 					</tr>
-					<tr>
-						<td class="pId">001</td>
-						<td class="pName"><a th:href=@{/admin/product-list/product}>Adobe Premiere</a></td>
-						<td class="pPrice">199.000 ₫</td>
-						<td class="pStatus">Còn hàng</td>
-						<td class="pCategory">Đồ họa</td>
+					<tr th:each="s : ${softwares}">
+						<td class="pId" th:text="${s.id}"></td>
+						<td class="pName" th:text="${s.name}"><a th:href=@{/admin/product-list/product}>Adobe Premiere</a></td>
+						<td class="pPrice" th:text="${s.price}"></td>
+						<td class="pStatus" th:text="${s.quantity}"></td>
+						<td class="pCategory" th:text="${s.category}"></td>
 						<td>
 							<div class="wrapper--horizonal two--buttons">
 								<button class="updateBtn" onclick="window.location.href='/admin/product-list/product';">Sửa</button>
@@ -79,19 +79,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr>
-						<td class="pId">002</td>
-						<td class="pName"><a th:href=@{/admin/product-list/product}>Winrar</a></td>
-						<td class="pPrice">0.00 ₫</td>
-						<td class="pStatus">Miễn phí</td>
-						<td class="pCategory">PM khác</td>
-						<td>
-							<div class="wrapper--horizonal two--buttons">
-								<button class="updateBtn">Sửa</button
-								><button class="deleteBtn">Xóa</button>
-							</div>
-						</td>
-					</tr>
+
 				</table>
 			</div>
 			<!-- /container -->
