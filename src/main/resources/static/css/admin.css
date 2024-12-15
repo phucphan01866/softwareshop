@@ -172,6 +172,10 @@
 
                 ;
             }
+            #description {
+                rows: 50;
+                height: 500px;
+            }
 
         }
     }
