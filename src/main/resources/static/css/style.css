@@ -55,8 +55,9 @@ Table OF Contents
 	Typography
 \*----------------------------*/
 
-flex-center {
-
+.flex-center {
+    display: flex !important;
+    justify-content: space-between;
 }
 
 body {
