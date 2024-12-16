@@ -268,7 +268,7 @@
 								<div class="col-md-4 col-xs-6" th:each="s : ${softwares}">
 								<div class="product">
 									<div class="product-img">
-										<img th:src="@{'/img/' + ${s.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
+										<img th:src="@{'/img_software/' + ${s.image}}" th:attr="style='width: 250px; height: 250px; display: block; margin: 0 auto; object-fit: cover; '" alt="">
 										<div class="product-label">
 											<span class="sale">-30%</span>
 											<span class="new">NEW</span>
