@@ -68,7 +68,7 @@ public class CartController {
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
 
-        return "software/softwares";
+        return "redirect:/softwares";
     }
 
     public double calculateTotal(Map<Integer, Order_items> orderItems) {
