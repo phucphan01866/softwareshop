@@ -32,11 +32,11 @@ public class webBasicController {
     
         return "category";
     }
-    @RequestMapping("/login")
-    public String login() {
-
-        return "login";
-    }
+//    @RequestMapping("/login")
+//    public String login() {
+//
+//        return "login";
+//    }
     @RequestMapping("/register")
     public String regis() {
 

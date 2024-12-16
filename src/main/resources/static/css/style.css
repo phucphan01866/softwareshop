@@ -62,6 +62,13 @@ Table OF Contents
     display: flex !important;
     justify-content: space-between;
 }
+.margin-center {
+    margin: auto;
+}
+
+.full-width {
+    width: 100%:
+}
 
 .add-to-cart-btn {
     display: block;
