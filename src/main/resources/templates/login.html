@@ -49,13 +49,27 @@
 				<!-- row -->
 				<div class="row">
 					<div class="main-content login">
-						<form class="form">
+						<form class="form" th:action="@{/login}" method="post">
 							<div class="title">Đăng nhập</div>
-							<input type="text" class="input-field email" placeholder="Email" />
+							<div th:if="${error != null}" class="error-message">
+								<p th:text="${error}"></p>
+							</div>
+							<div th:if="${message != null}" class="success-message">
+								<p th:text="${message}"></p>
+							</div>
+							<input
+									type="email"
+									class="input-field email"
+									name="email"
+									placeholder="Email"
+									required
+							/>
 							<input
 									type="password"
 									class="input-field password"
+									name="password"
 									placeholder="Mật khẩu"
+									required
 							/>
 							<a class="link-forgot-password" href="#">Quên mật khẩu?</a>
 							<button class="submit-button">Đăng nhập</button>
