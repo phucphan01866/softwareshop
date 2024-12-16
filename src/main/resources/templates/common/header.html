@@ -11,8 +11,8 @@
         <div id="top-header">
             <div class="container">
                 <ul class="header-links pull-left">
-                    <li><a href="#"><i class="fa fa-globe"></i>Tiếng Việt</a></li>
-                    <li><a href="#"><i class="fa"></i>English</a></li>
+                    <li><a href="?lang=vi"><i class="fa fa-globe"></i>Tiếng Việt</a></li>
+                    <li><a href="?lang=en"><i class="fa"></i>English</a></li>
                 </ul>
                 <ul class="header-links pull-right">
                     <li><a th:href="@{/login}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
@@ -43,14 +43,14 @@
                         <div class="header-search">
                             <form>
                                 <select class="input-select">
-                                    <option value="0">Tất cả</option>
-                                    <option value="1">Văn phòng</option>
-                                    <option value="2">Đồ họa</option>
-                                    <option value="3">Âm thanh</option>
-                                    <option value="4">PM khác</option>
+                                    <option value="0" th:text="#{header.allSoft}">Tất cả</option>
+                                    <option value="1" th:text="#{category.office}">Văn phòng</option>
+                                    <option value="2" th:text="#{category.graphic}">Đồ họa</option>
+                                    <option value="3" th:text="#{category.sound}">Âm thanh</option>
+                                    <option value="4" th:text="#{category.other}">PM khác</option>
                                 </select>
-                                <input class="input" placeholder="Nhập tên phần mềm">
-                                <button class="search-btn">Tìm kiếm</button>
+                                <input class="input" th:placeholder="#{header.searchPlaceholder}" placeholder="Nhập tên phần mềm">
+                                <button class="search-btn" th:text="#{header.searchButton}">Tìm kiếm</button>
                             </form>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
+                                    <span th:text="#{header.cart}">Giỏ Hàng</span>
                                     <div class="qty" th:text="${cart != null ? totalQuantity  : 0}">0</div>
                                 </a>
                                 <div class="cart-dropdown">
@@ -92,8 +92,8 @@
                                         <h5 th:text="'SUBTOTAL: ' + ${subtotal}+ '00 VND'">SUBTOTAL: $0.00</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a th:href="@{./checkout}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="#" th:text="#{header.viewCart}">View Cart</a>
+                                        <a th:href="@{./checkout}" th:text="#{header.checkOut}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>

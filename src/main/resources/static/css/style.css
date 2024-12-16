@@ -52,9 +52,12 @@ Table OF Contents
 ===========================================================*/
 
 /*----------------------------*\
-	Tự bổ sung vào
+	Custom CSS
 \*----------------------------*/
 
+.no-padding-top {
+    padding-top: 0;
+}
 .flex-center {
     display: flex !important;
     justify-content: space-between;
@@ -62,6 +65,7 @@ Table OF Contents
 
 .add-to-cart-btn {
     display: block;
+    margin: auto;
 }
 
 .qty-span {
@@ -76,6 +80,35 @@ Table OF Contents
 p.description {
     margin-bottom: 15px;
 }
+.purchased-list {
+    padding-bottom: 30px;
+    table.customTable {
+        width: 100%;
+        margin-bottom: 45px;
+        tr {
+            th, td {
+                text-align: center;
+                padding: 10px 0px;
+            }
+        }
+
+        button {
+            margin: auto;
+        }
+        .left {
+            text-align: left;
+            p, img {
+                display: inline-block;
+            }
+            img {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+
+
 /*----------------------------*\
 	Typography
 \*----------------------------*/
