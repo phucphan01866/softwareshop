@@ -56,6 +56,10 @@ public class UserController {
 
     @GetMapping("/login")
     public String showLoginPage() {
+
+
+
+
         return "login"; // Trả về login.html
     }
     @PostMapping("/login")

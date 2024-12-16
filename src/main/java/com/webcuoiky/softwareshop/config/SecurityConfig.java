@@ -30,9 +30,6 @@ public class SecurityConfig {
       @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 
-        http.authorizeHttpRequests((authorize) -> authorize
-                        .anyRequest().permitAll())
-                        .csrf().disable();;
 //
 //        http.authorizeHttpRequests((authorize) -> authorize
 //                        .anyRequest().permitAll());
@@ -40,8 +37,9 @@ public class SecurityConfig {
 //        return http.build();
           http
                   .authorizeHttpRequests(authorize -> authorize
-                          .requestMatchers("/", "/index", "/login", "/register", "/css/**", "/js/**", "/images/**", "/img/**").permitAll()  // Cho phép truy cập mà không cần đăng nhập
-                          .anyRequest().authenticated()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
+                          //Chỉnh lại cái /**
+                          .requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
+                          .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                   )
                   .formLogin(form -> form
                           .loginPage("/login")
