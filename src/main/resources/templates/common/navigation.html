@@ -12,14 +12,14 @@
       <div id="responsive-nav">
         <!-- NAV -->
         <ul class="main-nav nav navbar-nav">
-          <li class="active"><a th:href="@{/index}">Trang chủ</a></li>
-          <li><a th:href="@{/softwares}">Tất cả sản phẩm</a></li>
-          <li><a th:href="@{/softwares/office}">Văn phòng</a></li>
-          <li><a th:href="@{/softwares/graphic}">Đồ họa</a></li>
-          <li><a th:href="@{/softwares/audio}">Âm thanh</a></li>
-          <li><a th:href="@{/softwares/other}">Phần mềm khác</a></li>
+          <li class="active"><a th:href="@{/index}" th:text="#{navigation.homepage}">#</a></li>
+          <li><a th:href="@{/softwares}" th:text="#{navigation.allSoft}">Tất cả sản phẩm</a></li>
+          <li><a href="#" th:text="#{category.office}">Văn phòng</a></li>
+          <li><a href="#" th:text="#{category.graphic}">Đồ họa</a></li>
+          <li><a href="#" th:text="#{category.sound}">Âm thanh</a></li>
+          <li><a href="#" th:text="#{category.other}">Phần mềm khác</a></li>
         </ul>
-
+        <!-- /NAV -->
       </div>
       <!-- /responsive-nav -->
     </div>

@@ -52,13 +52,66 @@ Table OF Contents
 ===========================================================*/
 
 /*----------------------------*\
-	Typography
+	Custom CSS
 \*----------------------------*/
 
+.no-padding-top {
+    padding-top: 0;
+}
 .flex-center {
     display: flex !important;
     justify-content: space-between;
 }
+
+.add-to-cart-btn {
+    display: block;
+    margin: auto;
+}
+
+.qty-span {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.add-to-cart-btn-div {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+}
+p.description {
+    margin-bottom: 15px;
+}
+.purchased-list {
+    padding-bottom: 30px;
+    table.customTable {
+        width: 100%;
+        margin-bottom: 45px;
+        tr {
+            th, td {
+                text-align: center;
+                padding: 10px 0px;
+            }
+        }
+
+        button {
+            margin: auto;
+        }
+        .left {
+            text-align: left;
+            p, img {
+                display: inline-block;
+            }
+            img {
+                margin-right: 15px;
+            }
+        }
+    }
+}
+
+
+
+/*----------------------------*\
+	Typography
+\*----------------------------*/
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -136,7 +189,25 @@ textarea.input {
 /*-- Number input --*/
 
 .input-number {
-  position: relative;
+
+  display: grid !important;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  input {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
+  .qty-up, .qty-down {
+    position: static !important;
+  }
+  .qty-up {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+    .qty-down {
+      grid-column: 2/3;
+      grid-row: 2/3;
+    }
 }
 
 .input-number input[type="number"]::-webkit-inner-spin-button, .input-number input[type="number"]::-webkit-outer-spin-button {
@@ -1476,6 +1547,23 @@ header {
 }
 
 /*----------------------------*\
+  Product price and available
+\*----------------------------*/
+
+.price-and-available {
+    display: flex;
+    justify-content: flex-start;
+    .product-price {
+
+    }
+    .product-available {
+        margin-left: 15px;
+        padding-bottom: 15px;
+        align-self: flex-end;
+    }
+}
+
+/*----------------------------*\
 	Product details
 \*----------------------------*/
 
@@ -1519,7 +1607,6 @@ header {
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 700;
-  margin-left: 30px;
   color: #D10024;
 }
 
@@ -1618,6 +1705,9 @@ header {
 
 .product-details .product-links li+li {
   margin-left: 10px;
+}
+.product-description {
+    font-style: italic;
 }
 
 /*----------------------------*\

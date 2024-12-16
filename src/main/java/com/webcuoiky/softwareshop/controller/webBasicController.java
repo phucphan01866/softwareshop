@@ -1,7 +1,10 @@
 package com.webcuoiky.softwareshop.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.Locale;
 
 
 //http:/www.thymeleaf.com
@@ -9,16 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class webBasicController {
     @RequestMapping(value={"/","/index"})
-    public String index() {
-
+    public String index(Locale locale, Model model) {
+        String currentLang = locale.getLanguage();
+        model.addAttribute("currentLang", currentLang);
         return "index";
     }
-    @RequestMapping("/checkout")
-    public String checkout() {
-
-        return "checkout";
-    }
-    @RequestMapping("/category/product")
+//    @RequestMapping("/checkout")
+//    public String checkout() {
+//
+//        return "checkout";
+//    }
+    @RequestMapping("/product")
     public String product() {
 
         return "product";
@@ -37,5 +41,10 @@ public class webBasicController {
     public String regis() {
 
         return "register";
+    }
+    @RequestMapping("/user")
+    public String check() {
+
+        return "user";
     }
 }
