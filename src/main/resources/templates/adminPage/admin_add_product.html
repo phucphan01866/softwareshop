@@ -60,7 +60,6 @@
 						<label>Chọn 1 ảnh đại diện</label>
 						<input type="file" th:field="${softwareDTO.image}">
 
-
 					</div>
 
 
@@ -112,8 +111,8 @@
 										th:field="${softwareDTO.category}"
 								>
 									<option value="office">Văn phòng</option>
-									<option value="">Đồ họa</option>
-									<option value="">Âm thanh</option>
+									<option value="graphic">Đồ họa</option>
+									<option value="audio">Âm thanh</option>
 									<option value="other">PM khác</option>
 								</select>
 								<p th:if="${#fields.hasErrors('category')}" th:errorclass="text-danger"
