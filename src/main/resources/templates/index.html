@@ -58,7 +58,7 @@
 							</div>
 							<div class="shop-body">
 								<h3 th:text="#{category.office} + (${currentLang=='en'}? ' Software':'')">Văn phòng</h3>
-								<a href="#" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
+								<a th:href="@{/softwares/office}" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -72,7 +72,7 @@
 							</div>
 							<div class="shop-body">
 								<h3 th:text="#{category.graphic} + (${currentLang=='en'}? ' Software':'')">Đồ Họa</h3>
-								<a href="#" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
+								<a th:href="@{/softwares/graphic}" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 							</div>
 							<div class="shop-body">
 									<h3 th:text="#{category.sound} + (${currentLang=='en'}? ' Software':'')">Âm Thanh</h3>
-								<a href="#" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
+								<a th:href="@{softwares/sound}" class="cta-btn"> <p style="display: inline-block" th:text="#{index.checkNow}">Xem ngay</p> <i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -111,10 +111,11 @@
 							<h3 class="title" th:text="#{index.newSoftwares}">Phần mềm mới</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab1" th:text="#{category.office}">Văn phòng</a></li>
-									<li><a data-toggle="tab" href="#tab1" th:text="#{category.graphic}">Đồ họa</a></li>
-									<li><a data-toggle="tab" href="#tab1" th:text="#{category.sound}">Âm thanh</a></li>
-									<li><a data-toggle="tab" href="#tab1" th:text="#{category.other}">Khác</a></li>
+									<li ><a data-toggle="tab" href="#tab1" th:text="#{category.office}" onclick="changeUrl('')"></a></li>
+									<li><a data-toggle="tab" href="#tab1" th:text="#{category.graphic}" onclick="changeUrl('graphic')">Đồ họa</a></li>
+									<li><a data-toggle="tab" href="#tab1" th:text="#{category.sound}" onclick="changeUrl('sound')">Âm thanh</a></li>
+									<li>    <a data-toggle="tab" href="#tab4" th:text="#{category.other}" onclick="changeUrl('other')">Khác</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -126,21 +127,21 @@
 						<div class="row">
 							<div class="products-tabs">
 								<!-- tab -->
-								<div id="tab1" class="tab-pane active">
+								<div id="tab1" class="tab-pane active" >
 									<div class="products-slick" data-nav="#slick-nav-1">
 										<!-- product -->
-										<div class="product">
+										<div class="product" th:each="s : ${softwaresOffice}">
 											<div class="product-img">
-												<img src="./img/product01.png" alt="">
+												<img th:src="@{'/img_software/' + ${s.image}}" alt="">
 												<div class="product-label">
 													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
-												<p class="product-category">Category</p>
-												<h3 class="product-name"><a href="#">product name goes here</a></h3>
-												<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<p class="product-category" th:text ="${s.category}">Category</p>
+												<h3 class="product-name" th:text ="${s.name}"><a href="#">product name goes here</a></h3>
+												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -154,11 +155,36 @@
 											</div>
 										</div>
 										<!-- /product -->
+										<div class="product" th:each="s : ${softwaresOffice}">
+											<div class="product-img">
+												<img th:src="@{'/img_software/' + ${s.image}}" alt="">
+												<div class="product-label">
+													<span class="sale">-30%</span>
+													<span class="new">NEW</span>
+												</div>
+											</div>
+											<div class="product-body">
+												<p class="product-category" th:text ="${s.category}">Category</p>
+												<h3 class="product-name" th:text ="${s.name}"><a href="#">product name goes here</a></h3>
+												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<div class="product-rating">
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+													<i class="fa fa-star"></i>
+												</div>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="button.addToCart">add to cart</p></button>
+											</div>
+										</div>
 
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
 								<!-- /tab -->
+
 							</div>
 						</div>
 					</div>
@@ -489,6 +515,13 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
-
+		<script>
+			function changeUrl(tab) {
+				// Đổi URL mà không tải lại trang
+				const newUrl = `${window.location.origin}/index?${tab}`;
+				history.pushState(null, '', newUrl);
+				location.reload(); // Reload trang
+			}
+		</script>
 	</body>
 </html>

@@ -163,7 +163,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text="${s.category}">Category</p>
 										<h3 class="product-name">
-											<a th:href="@{software_detail/{id}(id=${s.id})}" th:text="${s.name}">Name product goes here</a>
+											<a th:href="@{/software_detail/{id}(id=${s.id})}" th:text="${s.name}">Name product goes here</a>
 										</h3>
 										<h4 class="product-price" th:text="${s.price} + '00 VND'">$980.00 <del class="product-old-price">$990.00</del></h4>
 										<div class="product-rating">
