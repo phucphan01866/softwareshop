@@ -37,8 +37,8 @@ public class SecurityConfig {
 //        return http.build();
           http
                   .authorizeHttpRequests(authorize -> authorize
-                          //Chỉnh lại cái /**
-                          .requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
+                          //Chỉnh lại cái , đang đảo ngược lại/**
+                          //.requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
                           .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                   )
                   .formLogin(form -> form

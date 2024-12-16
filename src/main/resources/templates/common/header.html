@@ -17,13 +17,16 @@
                 <ul class="header-links pull-right">
                     <!-- Kiểm tra người dùng đã đăng nhập chưa -->
                     <li sec:authorize="isAuthenticated()">
-                        <a th:href="@{/logout}"><i class="fa fa-sign-out"></i> Đăng xuất</a>
+                        <a th:href="@{/user}"><i class="fa fa-user-o"></i><span th:text="#{header.user}"> Danh sách</span></a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a th:href="@{/logout}"><i class="fa fa-sign-out"></i><span th:text="#{header.logout}"> Đăng xuất</span></a>
                     </li>
                     <li sec:authorize="isAnonymous()">
-                        <a th:href="@{/login}"><i class="fa fa-dollar"></i> Đăng nhập</a>
+                        <a th:href="@{/login}"><i class="fa fa-dollar"></i> <span th:text="#{header.login}">Đăng nhập</span></a>
                     </li>
                     <li sec:authorize="isAnonymous()">
-                        <a th:href="@{/register}"><i class="fa fa-user-o"></i> Đăng ký</a>
+                        <a th:href="@{/register}"><i class="fa fa-user-o"></i> <span th:text="#{header.register}">Đăng ký</span></a>
                     </li>
                 </ul>
             </div>
@@ -97,11 +100,11 @@
 
                                     <div class="cart-summary">
                                         <small th:text="${cart != null ? #lists.size(cart) + ' Item(s) selected' : '0 Item(s) selected'}">0 Item(s) selected</small>
-                                        <h5 th:text="'SUBTOTAL: ' + ${subtotal}+ '00 VND'">SUBTOTAL: $0.00</h5>
+                                        <h5 th:text="#{header.subTotal} +': ' + ${subtotal}+ '00 VNĐ'">SUBTOTAL: $0.00</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a th:href="@{./checkout}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="#" th:text="#{header.viewCart}">View Cart</a>
+                                        <a th:href="@{./checkout}" th:text="#{header.checkOut}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>

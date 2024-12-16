@@ -22,26 +22,26 @@ public class webBasicController {
 //
 //        return "checkout";
 //    }
-    @RequestMapping("/product")
-    public String product() {
-
-        return "product";
-    }
-    @RequestMapping("/category")
-    public String category() {
-    
-        return "category";
-    }
+//    @RequestMapping("/product")
+//    public String product() {
+//
+//        return "product";
+//    }
+//    @RequestMapping("/category")
+//    public String category() {
+//
+//        return "category";
+//    }
 //    @RequestMapping("/login")
 //    public String login() {
 //
 //        return "login";
 //    }
-    @RequestMapping("/register")
-    public String regis() {
-
-        return "register";
-    }
+//    @RequestMapping("/register")
+//    public String regis() {
+//
+//        return "register";
+//    }
     @RequestMapping("/user")
     public String check() {
 
