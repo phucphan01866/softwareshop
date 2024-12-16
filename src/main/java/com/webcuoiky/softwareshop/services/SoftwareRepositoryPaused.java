@@ -4,6 +4,6 @@ import com.webcuoiky.softwareshop.model.Software;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface SoftwareRepository extends JpaRepository<Software, Integer> {
+public interface SoftwareRepositoryPaused extends JpaRepository<Software, Integer> {
 
 }
