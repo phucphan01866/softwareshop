@@ -16,7 +16,7 @@
             <li>
               <a th:href="@{/index}" th:text="#{navigation.homePage}">Home</a>
             </li>
-            <li th:if="${firstLayerPageName != null}">
+            <li th:if="${firstLayerPageName != null && currentPage != null}">
               <a th:href="@{/{firstLayer}(firstLayer=${firstLayerPageName})}"
                  th:text="#{${'category.'+category}}">
                 Category
@@ -28,7 +28,7 @@
                 Second Layer
               </a>
             </li>
-            <li class="active" th:text="${currentPage}">Current Page</li>
+            <li class="active" th:text="${currentPage==null}?#{text.category}:${currentPage}">Current Page</li>
           </ul>
         </div>
       </div>
