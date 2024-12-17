@@ -94,8 +94,6 @@ public class IndexController
             softwareListPaid2 = softwareListPaid;
         }
 
-
-
         System.out.println("Số sản phẩm Paid lấy được: " + softwareListPaid.size() +"  " +softwareListPaid2.size());
         model.addAttribute("softwarePaid1", softwareListPaid1);
         model.addAttribute("softwarePaid2", softwareListPaid2);
