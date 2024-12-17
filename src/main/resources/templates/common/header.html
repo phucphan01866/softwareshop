@@ -52,7 +52,7 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-7">
                         <div class="header-search">
-                            <form>
+                            <form th:action="@{/software/search}"><!--softwares_search đang tạm ở basicController, cần thì xóa nhé-->
                                 <select class="input-select">
                                     <option value="0" th:text="#{header.allSoft}">Tất cả</option>
                                     <option value="1" th:text="#{category.office}">Văn phòng</option>

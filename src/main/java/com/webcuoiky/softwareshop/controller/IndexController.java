@@ -13,7 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Controller
-@RequestMapping("index")
+@RequestMapping(value={"/","/index"})
 public class IndexController
 {
     @Autowired
