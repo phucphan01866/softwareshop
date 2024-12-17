@@ -45,7 +45,7 @@
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
-		<div th:replace="~{common/breadcrumb :: breadcrumb}"/>
+		<div th:replace="~{common/breadcrumb :: breadcrumb('softwares','office','Word')}"></div>
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
@@ -194,7 +194,7 @@
 
 					<div class="col-md-12">
 						<div class="section-title text-center">
-							<h3 class="title">Sản phẩm tương tự</h3>
+							<h3 class="title" th:text="#{software_detail.relatedProduct}">Sản phẩm tương tự</h3>
 						</div>
 					</div>
 

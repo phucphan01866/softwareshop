@@ -23,6 +23,7 @@ public class SoftwaresByCategoryController {
     @GetMapping("/office")
     public String showOffice(Model model) {
         List<Software> softwareList = repo.findByCategory("office");
+        model.addAttribute("category", "office");
         model.addAttribute("softwares", softwareList);
         return "software/softwares";
     }
@@ -30,6 +31,7 @@ public class SoftwaresByCategoryController {
     @GetMapping("/graphic")
     public String showGraphic(Model model) {
         List<Software> softwareList = repo.findByCategory("graphic");
+        model.addAttribute("category", "graphic");
         model.addAttribute("softwares", softwareList);
         return "software/softwares";
     }
@@ -37,6 +39,7 @@ public class SoftwaresByCategoryController {
     @GetMapping("/sound")
     public String showSound(Model model) {
         List<Software> softwareList = repo.findByCategory("sound");
+        model.addAttribute("category", "sound");
         model.addAttribute("softwares", softwareList);
         return "software/softwares";
     }
@@ -44,6 +47,7 @@ public class SoftwaresByCategoryController {
     @GetMapping("/other")
     public String showOther(Model model) {
         List<Software> softwareList = repo.findByCategory("other");
+        model.addAttribute("category", "other");
         model.addAttribute("softwares", softwareList);
         return "software/softwares";
     }
