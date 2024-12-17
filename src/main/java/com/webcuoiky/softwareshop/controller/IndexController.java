@@ -67,23 +67,19 @@ public class IndexController
         List<Software> softwareListFree2 = List.of();
         if (softwareListFree.size() > limit1) {
             softwareListFree1 = softwareListFree.subList(0, limit1); //sort xong lấy t 0 tới limit1, giảm số
+            softwareListFree2 = softwareListFree.subList(limit1, Math.min(limit2,softwareListFree.size()));
         }
         else{
             softwareListFree1 = softwareListFree;       //ít hơn limit1 thì lấy hết
+            softwareListFree2 = softwareListFree;
         }
 
-        if (softwareListFree.size() >= limit2) {
-            softwareListFree2 = softwareListFree.subList(limit1, limit2);
-        }
-        else{
-            softwareListFree2 = softwareListFree.subList(limit1, softwareListFree.size());
-        }
-
+        System.out.println("Check");
         System.out.println("Số sản phẩm Free lấy được: " + softwareListFree.size() +"  " +softwareListFree2.size());
         model.addAttribute("softwareFree1", softwareListFree1);
         model.addAttribute("softwareFree2", softwareListFree2);
         /////////
-
+        System.out.println("Check");
         /////////Tab sản phẩm nổi bật mất phí (mất phí + mắc nhất)
         List<Software> softwareListPaid = repo.findByPriceNot(0.000);
         softwareListPaid.sort(Comparator.comparing(Software::getPrice).reversed());
