@@ -58,19 +58,19 @@
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
+								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
+								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
+								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
 							</div>
 
 							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
+								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 250px; height: 250px; display: block; margin: 0 auto;object-position: center;  object-fit: cover'" alt="">
 							</div>
 						</div>
 					</div>
@@ -167,7 +167,7 @@
 								<!-- tab1  -->
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
-										<div class="col-md-12">
+										<div class="col-md-12" th:text="${software_detail.description}">
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 										</div>
 									</div>
@@ -194,7 +194,7 @@
 
 					<div class="col-md-12">
 						<div class="section-title text-center">
-							<h3 class="title">Related Products</h3>
+							<h3 class="title">Sản phẩm tương tự</h3>
 						</div>
 					</div>
 
@@ -237,7 +237,7 @@
 							</div>
 							<div class="product-body">
 								<p class="product-category">Category</p>
-								<h3 class="product-name"><a href="#">product name goes here</a></h3>
+								<h3 class="product-name"><a href="#">Hi</a></h3>
 								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>

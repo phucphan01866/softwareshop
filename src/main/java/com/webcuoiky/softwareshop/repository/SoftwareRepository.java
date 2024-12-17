@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface SoftwareRepository extends JpaRepository<Software, Integer> {
     List<Software> findByCategory(String category);
-
+    List<Software> findByPrice(Double  price);      //YES
+    List<Software> findByPriceNot(Double  price); //NOT
 }
