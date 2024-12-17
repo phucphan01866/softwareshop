@@ -41,7 +41,7 @@ public class SecurityConfig {
                           //.requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
                           .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                   )
-                  .formLogin(form -> form
+                  .formLogin(form -> form.usernameParameter("email")
                           .loginPage("/login")
                           .defaultSuccessUrl("/index", true)
                           .permitAll()
