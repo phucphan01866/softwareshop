@@ -18,7 +18,7 @@
             </li>
             <li th:if="${firstLayerPageName != null}">
               <a th:href="@{/{firstLayer}(firstLayer=${firstLayerPageName})}"
-                 th:text="#{category.${firstLayerPageName}}">
+                 th:text="#{${'category.'+category}}">
                 Category
               </a>
             </li>
