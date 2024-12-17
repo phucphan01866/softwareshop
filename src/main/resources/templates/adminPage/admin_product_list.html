@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/www.thymeleaf.com">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+		<title>Electro - HTML Ecommerce Template</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/slick.css}"/>
+		<link type="text/css" rel="stylesheet" th:href="@{/css/slick-theme.css}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/nouislider.min.css}"/>
+
+		<!-- Font Awesome Icon -->
+		<link 				  rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}"/>
+
+		<!-- Custom product page for admin -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin-style.css}"/>
+
+		<!-- Custom product page for admin product list -->
+		<link type="text/css" rel="stylesheet" th:href="@{/css/admin.css}"/>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+	<!-- HEADER -->
+		<header th:replace="~{common/header :: header}"/>
+		<!-- /HEADER -->
+
+		<!-- BREADCRUMB -->
+		<div th:replace="~{common/breadcrumb :: breadcrumb}"/>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section admin">
+			<!-- container -->
+			<div class="container">
+				<!-- Table -->
+				<p id="title">DANH SÁCH SẢN PHẨM</p>
+				<div class="wrapper--horizonal reversed"><button class="button--add">Thêm sản phẩm</button></div>
+				<table id="admin_list">
+					<tr>
+						<th>ID</th>
+						<th>Tên sản phẩm</th>
+						<th>Giá</th>
+						<th>Tình trạng</th>
+						<th>Danh mục</th>
+						<th>Thao tác</th>
+					</tr>
+					<tr>
+						<td class="pId">001</td>
+						<td class="pName"><a th:href=@{/admin/product-list/product}>Adobe Premiere</a></td>
+						<td class="pPrice">199.000 ₫</td>
+						<td class="pStatus">Còn hàng</td>
+						<td class="pCategory">Đồ họa</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn" onclick="window.location.href='/admin/product-list/product';">Sửa</button>
+								<button class="deleteBtn" onclick="window.location.href='/admin/product-list/product';">Xóa</button>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="pId">002</td>
+						<td class="pName"><a th:href=@{/admin/product-list/product}>Winrar</a></td>
+						<td class="pPrice">0.00 ₫</td>
+						<td class="pStatus">Miễn phí</td>
+						<td class="pCategory">PM khác</td>
+						<td>
+							<div class="wrapper--horizonal two--buttons">
+								<button class="updateBtn">Sửa</button
+								><button class="deleteBtn">Xóa</button>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- FOOTER -->
+		<footer th:replace="~{common/footer :: footer}"/>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script th:src="@{/js/jquery.min.js}"></script>
+		<script th:src="@{/js/bootstrap.min.js}"></script>
+		<script th:src="@{/js/slick.min.js}"></script>
+		<script th:src="@{/js/nouislider.min.js}"></script>
+		<script th:src="@{/js/jquery.zoom.min.js}"></script>
+		<script th:src="@{/js/main.js}"></script>
+
+	</body>
+</html>
