@@ -67,14 +67,13 @@ public class IndexController
         List<Software> softwareListFree2 = List.of();
         if (softwareListFree.size() > limit1) {
             softwareListFree1 = softwareListFree.subList(0, limit1); //sort xong lấy t 0 tới limit1, giảm số
-            softwareListFree2 = softwareListFree.subList(limit1, Math.min(limit2,softwareListFree.size()));
+            softwareListFree2 = softwareListFree.subList(limit1, Math.min(limit2,softwareListFree.size())); //Nếu list > 6 thì lấy 6 = limit2, nếu không thì lấy list.size()
         }
         else{
-            softwareListFree1 = softwareListFree;       //ít hơn limit1 thì lấy hết
+            softwareListFree1 = softwareListFree;       //ít hơn limit1 thì lấy hết + copy sang cột 2
             softwareListFree2 = softwareListFree;
         }
 
-        System.out.println("Check");
         System.out.println("Số sản phẩm Free lấy được: " + softwareListFree.size() +"  " +softwareListFree2.size());
         model.addAttribute("softwareFree1", softwareListFree1);
         model.addAttribute("softwareFree2", softwareListFree2);
@@ -88,17 +87,14 @@ public class IndexController
         List<Software> softwareListPaid2 = List.of();
         if (softwareListPaid.size() > limit1) {
             softwareListPaid1 = softwareListPaid.subList(0, limit1); //sort xong lấy t 0 tới limit1, giảm số
+            softwareListPaid2 = softwareListPaid.subList(limit1, Math.min(limit2,softwareListPaid.size())); //Nếu list > 6 thì lấy 6 = limit2, nếu không thì lấy list.size()
         }
         else{
-            softwareListPaid1 = softwareListPaid;       //ít hơn limit1 thì lấy hết
+            softwareListPaid1 = softwareListPaid;       //ít hơn limit1 thì lấy hết + copy sang cột 2
+            softwareListPaid2 = softwareListPaid;
         }
 
-        if (softwareListPaid.size() >= limit2) {
-            softwareListPaid2 = softwareListPaid.subList(limit1, limit2);
-        }
-        else{
-            softwareListPaid2 = softwareListPaid.subList(limit1, softwareListPaid.size());
-        }
+
 
         System.out.println("Số sản phẩm Paid lấy được: " + softwareListPaid.size() +"  " +softwareListPaid2.size());
         model.addAttribute("softwarePaid1", softwareListPaid1);
