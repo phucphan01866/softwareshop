@@ -23,7 +23,7 @@
               </a>
             </li>
             <li th:if="${secondLayerPageName != null}">
-              <a th:href="@{/{firstLayer}/{secondLayer}(firstLayer=${secondLayerPageName}, secondLayer=${secondLayerPageName})}"
+              <a th:href="@{/{firstLayer}/{secondLayer}(firstLayer=${firstLayerPageName}, secondLayer=${secondLayerPageName})}"
                  th:text="#{${'category.'+secondLayerPageName}}">
                 Second Layer
               </a>

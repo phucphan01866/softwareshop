@@ -45,7 +45,7 @@
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
-		<div th:replace="~{common/breadcrumb :: breadcrumb(null, null, 'checkout)}"></div>
+		<div th:replace="~{common/breadcrumb :: breadcrumb(null, null, 'checkout')}"></div>
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
@@ -110,19 +110,12 @@
 						<div class="payment-method">
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment">
-								<label for="payment">
-									<span th:text="#{checkOut.paypalPay}">Paypal System</span>
-								</label>
-								<div class="caption">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								</div>
+								<label for="payment" th:text="#{checkOut.paypalPay}"></label>
 							</div>
 						</div>
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
-							<label for="terms">
-								<span th:text="#{checkOut.termAndConditions}">I've read and accept the <a href="#">terms & conditions</a></span>
-							</label>
+							<label for="terms" th:text="#{checkOut.termAndConditions}"></label>
 						</div>
 						<a href="./thankyou" class="primary-btn order-submit" th:text="#{checkOut.placeOrder}">Place order</a>
 					</div>

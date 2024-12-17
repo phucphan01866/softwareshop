@@ -55,7 +55,7 @@
 				<!-- row -->
 				<div class="row">
 					<!-- Product main img -->
-					<div class="col-md-5 col-md-push-2">
+					<div class="col-md-5 col-md-push-1">
 						<div id="product-main-img">
 							<div class="product-preview">
 								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
@@ -65,7 +65,7 @@
 					<!-- /Product main img -->
 
 					<!-- Product details -->
-					<div class="col-md-4">
+					<div class="col-md-4 col-md-push-1">
 						<div class="product-details">
 							<h2 class="product-name" th:text="${software_detail.name}"></h2>
 							<div>
@@ -178,11 +178,6 @@
 								<h3 class="product-name"><a href="#">product name goes here</a></h3>
 								<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
 								<div class="product-rating">
-								</div>
-								<div class="product-btns">
-									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-									<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 								</div>
 							</div>
 							<div class="add-to-cart">
