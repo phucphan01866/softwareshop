@@ -73,6 +73,13 @@ Table OF Contents
 .add-to-cart-btn {
     display: block;
     margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+        margin: 0px;
+        padding: 0px;
+    }
 }
 
 .qty-span {
