@@ -11,20 +11,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="breadcrumb-header" th:text="${currentPage}">Tên trang hiện tại</h3>
+          <h3 class="breadcrumb-header" th:text="${currentPage==null}?#{text.category}:${currentPage}">Tên trang hiện tại</h3>
           <ul class="breadcrumb-tree">
             <li>
               <a th:href="@{/index}" th:text="#{navigation.homePage}">Home</a>
             </li>
             <li th:if="${firstLayerPageName != null && currentPage != null}">
               <a th:href="@{/{firstLayer}(firstLayer=${firstLayerPageName})}"
-                 th:text="#{${'category.'+category}}">
+                 th:text="#{${'category.'+firstLayerPageName}}">
                 Category
               </a>
             </li>
             <li th:if="${secondLayerPageName != null}">
-              <a th:href="@{/{firstLayer}/{secondLayer}(firstLayer=${firstLayerPageName}, secondLayer=${secondLayerPageName})}"
-                 th:text="#{category.${secondLayerPageName}}">
+              <a th:href="@{/{firstLayer}/{secondLayer}(firstLayer=${secondLayerPageName}, secondLayer=${secondLayerPageName})}"
+                 th:text="#{${'category.'+secondLayerPageName}}">
                 Second Layer
               </a>
             </li>
