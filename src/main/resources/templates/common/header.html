@@ -52,15 +52,15 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-7">
                         <div class="header-search">
-                            <form th:action="@{/software/search}"><!--softwares_search đang tạm ở basicController, cần thì xóa nhé-->
-                                <select class="input-select">
-                                    <option value="0" th:text="#{header.allSoft}">Tất cả</option>
-                                    <option value="1" th:text="#{category.office}">Văn phòng</option>
-                                    <option value="2" th:text="#{category.graphic}">Đồ họa</option>
-                                    <option value="3" th:text="#{category.sound}">Âm thanh</option>
-                                    <option value="4" th:text="#{category.other}">PM khác</option>
+                            <form th:action="@{/software/search}" method="get"><!--softwares_search đang tạm ở basicController, cần thì xóa nhé-->
+                                <select class="input-select" name="category">
+                                    <option value="" th:text="#{header.allSoft}">Tất cả</option>
+                                    <option value="office" th:text="#{category.office}">Văn phòng</option>
+                                    <option value="graphic" th:text="#{category.graphic}">Đồ họa</option>
+                                    <option value="sound" th:text="#{category.sound}">Âm thanh</option>
+                                    <option value="other" th:text="#{category.other}">PM khác</option>
                                 </select>
-                                <input class="input" th:placeholder="#{header.searchPlaceholder}" placeholder="Nhập tên phần mềm">
+                                <input class="input" name="name" th:placeholder="#{header.searchPlaceholder}" placeholder="Nhập tên phần mềm">
                                 <button class="search-btn" th:text="#{header.searchButton}">Tìm kiếm</button>
                             </form>
                         </div>

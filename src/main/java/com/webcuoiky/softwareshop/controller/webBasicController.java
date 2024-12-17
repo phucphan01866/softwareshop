@@ -47,9 +47,9 @@ public class webBasicController {
 
         return "user";
     }
-    @RequestMapping("/software/search")
-    public String softSearch() {
-
-        return "software/softwares_search";
-    }
+//    @RequestMapping("/software/search")
+//    public String softSearch() {
+//
+//        return "software/softwares_search";
+//    }
 }
