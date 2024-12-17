@@ -45,7 +45,7 @@
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
-	    <div th:replace="~{common/breadcrumb :: breadcrumb('softwares', ${category}, 'Word')}"></div>
+	    <div th:replace="~{common/breadcrumb :: breadcrumb('softwares', 'office', ${software_detail.name})}"></div>
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
@@ -60,43 +60,9 @@
 							<div class="product-preview">
 								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
 							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img_software/' + ${software_detail.image}}" th:attr="style='width: 250px; height: 250px; display: block; margin: 0 auto;object-position: center;  object-fit: cover'" alt="">
-							</div>
 						</div>
 					</div>
 					<!-- /Product main img -->
-
-					<!-- Product thumb imgs -->
-					<div class="col-md-2  col-md-pull-5">
-						<div id="product-imgs">
-							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img th:src="@{'/img/' + ${software_detail.image}}" th:attr="style='width: 200px; height: 250px; display: block; margin: 0 auto;'" alt="">
-							</div>
-						</div>
-					</div>
-					<!-- /Product thumb imgs -->
 
 					<!-- Product details -->
 					<div class="col-md-4">
