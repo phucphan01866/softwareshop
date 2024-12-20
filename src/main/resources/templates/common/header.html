@@ -17,7 +17,7 @@
                 <ul class="header-links pull-right">
                     <!-- Kiểm tra người dùng đã đăng nhập chưa -->
                     <li sec:authorize="isAuthenticated()">
-                        <a th:href="@{/user_order}"><i class="fa fa-user-o"></i><span th:text="#{header.user}"> Danh sách</span></a>
+                        <a th:href="@{/user-order}"><i class="fa fa-user-o"></i><span th:text="#{header.user}"> Danh sách</span></a>
                     </li>
                     <li sec:authorize="isAuthenticated()">
                         <a th:href="@{/logout}"><i class="fa fa-sign-out"></i><span th:text="#{header.logout}"> Đăng xuất</span></a>

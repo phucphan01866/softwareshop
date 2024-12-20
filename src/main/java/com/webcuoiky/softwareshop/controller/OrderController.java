@@ -105,7 +105,7 @@ public class OrderController {
     }
 
 
-    @RequestMapping("/user_order")
+    @RequestMapping("/user-order")
     public String userOder(Model model) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -122,7 +122,7 @@ public class OrderController {
         return "user_order";
     }
 
-    @RequestMapping("/user_order_detail/{orderId}")
+    @RequestMapping("/user-order-detail/{orderId}")
     public String orderDetail(@PathVariable("orderId") Integer orderId, Model model) {
         Order order = orderRepository.findById(orderId).orElse(null);
         if (order != null) {
