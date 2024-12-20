@@ -43,6 +43,10 @@
 		<header th:replace="~{common/header :: header}"/>
 		<!-- /HEADER -->
 
+		<!-- NAVIGATION -->
+		<nav th:replace="~{common/navigation :: navigation('index')}"/>
+		<!-- /NAVIGATION -->
+
 		<!-- SECTION -->
 		<div class="section admin">
 			<!-- container -->
@@ -52,16 +56,9 @@
 				<form id="input-form" method="post" enctype="multipart/form-data" th:object="${softwareDTO}">
 					<!-- Main image -->
 					<div class="form_row">
-
 						<label>Chọn 1 ảnh đại diện</label>
 						<input type="file" th:field="${softwareDTO.image}">
 
-					</div>
-
-
-					<!-- Sub images -->
-					<div class="form_row">
-						<button>Chọn các ảnh phụ</button>
 					</div>
 
 					<!-- Name -->

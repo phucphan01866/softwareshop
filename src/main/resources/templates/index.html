@@ -41,10 +41,10 @@
 		<!-- /HEADER -->
 
 		<!-- NAVIGATION -->
-		<nav th:replace="~{common/navigation :: navigation}"/>
+		<nav th:replace="~{common/navigation :: navigation('index')}"/>
 		<!-- /NAVIGATION -->
 
-		<!-- SECTION -->
+		<!-- SECTION 3 THẺ CATEGORY-->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -98,13 +98,12 @@
 		</div>
 		<!-- /SECTION -->
 
-		<!-- SECTION -->
+		<!-- SECTION SẢN PHẨM MỚI-->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-
 					<!-- section title -->
 					<div class="col-md-12">
 						<div class="section-title">
@@ -133,15 +132,11 @@
 										<div class="product" th:each="s : ${softwareOffice}">
 											<div class="product-img">
 												<img th:src="@{'/img_software/' + ${s.image}}" alt="">
-												<div class="product-label">
-													<span class="sale">-30%</span>
-													<span class="new">NEW</span>
-												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}"></a></h3>
-												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.price  + '00 Đ'}">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -151,12 +146,10 @@
 												</div>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
+												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
 										</div>
 										<!-- /product -->
-
-
 									</div>
 									<div id="slick-nav-1" class="products-slick-nav"></div>
 								</div>
@@ -169,14 +162,13 @@
 											<div class="product-img">
 												<img th:src="@{'/img_software/' + ${s.image}}" alt="">
 												<div class="product-label">
-													<span class="sale">-30%</span>
 													<span class="new">NEW</span>
 												</div>
 											</div>
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}">product name goes here</a></h3>
-												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.price=='0.0'?'Miễn Phí':'s.price'}">$980.00</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -320,7 +312,7 @@
 		</div>
 		<!-- /HOT DEAL SECTION -->
 
-		<!-- SECTION -->
+		<!-- SECTION SẢN PHẨM NỔI BẬT-->
 		<div class="section">
 			<!-- container -->
 			<div class="container">
@@ -341,7 +333,6 @@
 								<div id="slick-nav-5" class="products-slick-nav"></div>
 							</div>
 						</div>
-
 						<div class="products-widget-slick" data-nav="#slick-nav-5">
 							<!-- Cột 1 trang thứ 1 -->
 							<div>
@@ -353,7 +344,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}"></p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text = "${sw.price}"> <del class="product-old-price">$990.00</del></h4>
+										<h4 class="product-price" th:text = "${sw.price + '00 đ'}">$990.0</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -369,7 +360,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text ="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text="${sw.price}"><del class="product-old-price">$990.00</del></h4>
+										<h4 class="product-price" th:text="${sw.price + '00 đ'}">$990.0</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -398,7 +389,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text = "${sw.name}">product name goes here</a></h3>
-										<h4 class="product-price" th:text = "${sw.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h4 class="product-price" th:text = "${sw.price + '00 đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -413,7 +404,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text="${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text="${sw.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h4 class="product-price" th:text="${sw.price + '00 đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->

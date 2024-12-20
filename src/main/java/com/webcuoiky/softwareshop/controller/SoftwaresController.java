@@ -27,6 +27,7 @@ public class SoftwaresController {
 
     @RequestMapping("softwares")
     public String showSoftwares(ModelMap model) {
+        model.addAttribute("category","all");
         return "software/softwares";
     }
 

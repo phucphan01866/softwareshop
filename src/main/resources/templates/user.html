@@ -41,7 +41,7 @@
 		<!-- /HEADER -->
 
 		<!-- NAVIGATION -->
-		<nav th:replace="~{common/navigation :: navigation}"/>
+		<nav th:replace="~{common/navigation :: navigation(null)}"/>
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
@@ -55,7 +55,7 @@
 				<!-- row -->
 				<div class="">
 					<!-- Order Details -->
-					<div class="col-md-12 purchased-list">
+					<div class="col-md-12 purchased-list no-padding-top">
 						<div class="section-title text-center">
 							<h3 class="title">Sản phẩm bạn đã mua</h3>
 						</div>
@@ -75,15 +75,7 @@
 										<p>MS Office 2024</p></td>
 									<td>Office</td>
 									<td>2</td>
-									<td><button>Download</button></td>
-								</tr>
-								<tr>
-									<td class="left">
-										<img th:src="@{img/product01.png}" alt="Demo Img" width="100" height="100">
-										<p>MS Office 2024</p></td>
-									<td>Office</td>
-									<td>2</td>
-									<td><button>Download</button></td>
+									<td><a class=" btn downloadBtn" href="">Download</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -95,7 +87,6 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-
 
 		<!-- FOOTER -->
 		<footer th:replace="~{common/footer :: footer}"/>

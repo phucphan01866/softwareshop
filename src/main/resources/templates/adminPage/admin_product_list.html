@@ -46,42 +46,55 @@
 		<header th:replace="~{common/header :: header}"/>
 		<!-- /HEADER -->
 
+		<!-- NAVIGATION -->
+		<nav th:replace="~{common/navigation :: navigation('index')}"/>
+		<!-- /NAVIGATION -->
+
 		<!-- SECTION -->
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
 				<!-- Table -->
-				<p id="title">DANH SÁCH SẢN PHẨM</p>
-				<div class="wrapper--horizonal reversed"><button class="button--add" onclick="window.location.href='/admin/product-list/add-product';">
-					Thêm sản phẩm
-				</button>
+				<div class="col-md-12 purchased-list">
+					<h3 id="title">QUẢN LÝ SẢN PHẨM</h3>
+					<div class="wrapper--horizonal reversed"><button class="button--add" onclick="window.location.href='/admin/product-list/add-product';">
+						THÊM SẢN PHẨM
+					</button>
+					</div>
+					<table class="customTable" id="admin_list">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>TÊN SẢN PHẨM</th>
+							<th>GIÁ</th>
+							<th>SỐ LƯỢNG</th>
+							<th>DANH MỤC</th>
+							<th>THAO TÁC</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="s : ${softwares}">
+							<td class="pId" th:text="${s.id}"></td>
+							<td class="pName left" >
+								<img th:src="@{'/img_software/' + ${s.image}}"alt="" width="80px" height="80px">
+								<a th:href="@{/admin/product-list/update-product(id=${s.id})}" th:text="${s.name}">>Adobe Premiere</a>
+							</td>
+							<td class="pPrice" th:text="${s.price} + '00  đ'"></td>
+							<td class="pQuantity" th:text="${s.quantity}"></td>
+							<td class="pCategory" th:text="${s.category}"></td>
+							<td>
+								<div class="btns">
+									<a class=" btn updateBtn" th:href="@{/admin/product-list/update-product(id=${s.id})}">
+										Sửa
+									</a>
+									<a class=" btn deleteBtn" th:href="@{/admin/product-list/delete(id=${s.id})}">Xóa</a>
+								</div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
 				</div>
-				<table id="admin_list">
-					<tr>
-						<th>ID</th>
-						<th>Tên sản phẩm</th>
-						<th>Giá</th>
-						<th>Tình trạng</th>
-						<th>Danh mục</th>
-						<th>Thao tác</th>
-					</tr>
-					<tr th:each="s : ${softwares}">
-						<td class="pId" th:text="${s.id}"></td>
-						<td class="pName" th:text="${s.name}"><a th:href=@{/admin/product-list/product}>Adobe Premiere</a></td>
-						<td class="pPrice" th:text="${s.price}"></td>
-						<td class="pStatus" th:text="${s.quantity}"></td>
-						<td class="pCategory" th:text="${s.category}"></td>
-						<td>
-							<div class="wrapper--horizonal two--buttons">
-								<a class="updateBtn" th:href="@{/admin/product-list/update-product(id=${s.id})}">
-									Sửa
-								</a>
-								<a class="deleteBtn" th:href="@{/admin/product-list/delete(id=${s.id})}">Xóa</a>
-							</div>
-						</td>
-					</tr>
 
-				</table>
 			</div>
 			<!-- /container -->
 		</div>

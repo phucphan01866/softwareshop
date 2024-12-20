@@ -39,9 +39,17 @@
 
     </head>
 	<body>
-	<!-- HEADER -->
+		<!-- HEADER -->
 		<header th:replace="~{common/header :: header}"/>
 		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav th:replace="~{common/navigation :: navigation(null)}"/>
+		<!-- /NAVIGATION -->
+
+		<!-- BREADCRUMB -->
+		<div th:replace="~{common/breadcrumb :: breadcrumb(null, null, 'login')}"></div>
+		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
 		<div class="section admin">
