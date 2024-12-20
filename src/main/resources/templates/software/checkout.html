@@ -41,7 +41,7 @@
 		<!-- /HEADER -->
 
 		<!-- NAVIGATION -->
-		<nav th:replace="~{common/navigation :: navigation}"/>
+		<nav th:replace="~{common/navigation :: navigation(null)}"/>
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
@@ -86,8 +86,8 @@
 						</div>
 						<div class="order-summary">
 							<div class="order-col">
-								<div th:text="#{text.softName}"><strong>TÊN PHẦN MỀM</strong></div>
-								<div th:text="#{text.price}"><strong>GIÁ</strong></div>
+								<div ><strong class="upcase" th:text="#{text.softName}">TÊN PHẦN MỀM</strong></div>
+								<div ><strong class="upcase" th:text="#{text.price}">GIÁ</strong></div>
 							</div>
 							<div class="order-products">
 								<div class="order-col" th:each="item: ${cart}">
@@ -105,13 +105,13 @@
 							</div>
 						<div class="payment-method">
 							<div class="input-radio">
-								<input type="radio" name="payment" id="payment">
-								<label for="payment" th:text="#{checkOut.paypalPay}"></label>
+								<input type="radio" name="payment" id="payment" checked="checked">
+								<label for="payment" th:utext="#{checkOut.paypalPay}"></label>
 							</div>
 						</div>
 						<div class="input-checkbox">
 							<input type="checkbox" id="terms">
-							<label for="terms" th:text="#{checkOut.termAndConditions}"></label>
+							<label for="terms" th:utext="#{checkOut.termAndConditions}"></label>
 						</div>
 						<button type="submit" class="primary-btn order-submit" th:text="#{checkOut.placeOrder}">Place order</button>
 					</div>

@@ -17,7 +17,7 @@
         color: aliceblue;
         border: none;
         background-color: rgb(0, 102, 255);
-        margin-right: 32px;
+        margin: 20px 20px;
     }
     #title {
         font-size: 3rem;
@@ -65,7 +65,7 @@
     /*----------------------------*\
     	Danh sách
     \*----------------------------*/
-    #admin_list {
+    #admin_listPaused {
         width: 100%;
         height: auto;
         margin: auto;
@@ -82,7 +82,7 @@
             align-items: center;
             justify-content: center;
 
-            button {
+            .btn {
                 padding: 0.8rem 1.2rem;
                 border-radius: 5px;
                 color: aliceblue;
@@ -101,10 +101,6 @@
 
         td.pName {
             text-align: left;
-            padding: inherit 3rem inherit 3rem;
-        }
-        td.pPrice {
-            text-align: right;
             padding: inherit 3rem inherit 3rem;
         }
     }

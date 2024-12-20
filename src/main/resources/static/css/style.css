@@ -56,10 +56,15 @@ Table OF Contents
 \*----------------------------*/
 
 .no-padding-top {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 .flex-center {
     display: flex !important;
+    justify-content: space-between;
+}
+.flex-column-center {
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: space-between;
 }
 .margin-center {
@@ -69,7 +74,9 @@ Table OF Contents
 .full-width {
     width: 100%:
 }
-
+.upcase {
+    text-transform: capitalize;
+}
 .add-to-cart-btn {
     display: block;
     margin: auto;
@@ -95,19 +102,36 @@ p.description {
     margin-bottom: 15px;
 }
 .purchased-list {
-    padding-bottom: 30px;
+    padding: 30px 0px;
     table.customTable {
+        border: none;
         width: 100%;
         margin-bottom: 45px;
         tr {
             th, td {
                 text-align: center;
-                padding: 10px 0px;
+                padding: 10px 20px;
+                border: none;
             }
         }
-
-        button {
+        .btn, button {
+            padding: 0.8rem 1.2rem;
+            border-radius: 5px;
+            color: aliceblue;
+            border: none;
+        }
+        .btns, button {
             margin: auto;
+        }
+        .deleteBtn {
+            background-color: rgb(218, 39, 75);
+        }
+
+        .updateBtn {
+            background-color: rgb(0, 153, 10);
+        }
+        .downloadBtn {
+            background-color: rgb(0, 102, 255);
         }
         .left {
             text-align: left;
@@ -115,12 +139,34 @@ p.description {
                 display: inline-block;
             }
             img {
-                margin-right: 15px;
+                margin: 10px 15px;
             }
         }
     }
 }
+.thank-you {
+    img {
+        width: 150px;
+        aspect-ratio: 1/1;
+        margin: auto;
+    }
+    h1, p, a, img {
+        margin-bottom: 15px !important;
+        text-align: center;
+        line-height: 1.5;
+    }
+    h1, p {
+        margin-bottom: 15px !important;
+    }
+    img {
+        margin-bottom: 20px !important;
+    }
+    a {
+        font-weight: 700 !important;
+        margin-bottom: 5px !important;
+    }
 
+}
 
 
 /*----------------------------*\
