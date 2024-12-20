@@ -42,11 +42,11 @@ public class webBasicController {
 //
 //        return "register";
 //    }
-    @RequestMapping("/user")
-    public String check() {
-
-        return "user";
-    }
+//    @RequestMapping("/user_order")
+//    public String check() {
+//
+//        return "user_order";
+//    }
 //    @RequestMapping("/software/search")
 //    public String softSearch() {
 //

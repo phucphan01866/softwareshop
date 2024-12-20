@@ -141,7 +141,7 @@
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}"></a></h3>
-												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.getFormattedPrice()} + ' VND'">$980.00 <del class="product-old-price">$990.00</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>

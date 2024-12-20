@@ -25,6 +25,11 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @GetMapping("/register")
+    public String registerUser() {
+        return "register";
+    }
+
     @PostMapping("/register")
     public String registerUser(@RequestParam String name,
                                @RequestParam String email,

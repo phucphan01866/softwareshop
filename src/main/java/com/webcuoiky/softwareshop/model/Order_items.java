@@ -5,8 +5,18 @@ import jakarta.persistence.*;
 @Entity
 @Table
 public class Order_items {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Integer order_quantity;
+
+    public Integer getOrder_quantity() {
+        return order_quantity;
+    }
+
+    public void setOrder_quantity(Integer order_quantity) {
+        this.order_quantity = order_quantity;
+    }
 
     @ManyToOne
     @JoinColumn(name = "order_id")

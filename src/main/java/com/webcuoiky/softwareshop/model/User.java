@@ -1,9 +1,12 @@
 package com.webcuoiky.softwareshop.model;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
+import java.util.Collections;
 
 
 @Entity
@@ -77,4 +80,7 @@ public class User {
         this.orders = orders;
     }
 
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singletonList(new SimpleGrantedAuthority(role));
+    }
 }

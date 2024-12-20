@@ -2,6 +2,7 @@ package com.webcuoiky.softwareshop.model;
 
 import jakarta.persistence.*;
 
+import java.text.DecimalFormat;
 import java.util.Collection;
 
 @Entity
@@ -19,7 +20,6 @@ public class Software {
 
     @OneToMany(mappedBy = "software", fetch = FetchType.LAZY)
     private Collection<Order_items> orderItems;
-
 
     public Integer getId() {
         return id;
@@ -91,5 +91,10 @@ public class Software {
 
     public void setOrderItems(Collection<Order_items> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public String getFormattedPrice() {
+        DecimalFormat df = new DecimalFormat("0.000");
+        return df.format(price);
     }
 }

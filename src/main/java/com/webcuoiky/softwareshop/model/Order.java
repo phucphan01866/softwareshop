@@ -2,13 +2,15 @@ package com.webcuoiky.softwareshop.model;
 
 import jakarta.persistence.*;
 
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "`order`")
 public class Order {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Float cost;
     private String name;
@@ -115,4 +117,10 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getFormattedCost() {
+        DecimalFormat df = new DecimalFormat("0.000");
+        return df.format(cost);
+    }
+
 }

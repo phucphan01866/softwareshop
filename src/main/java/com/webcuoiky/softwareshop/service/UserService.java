@@ -27,11 +27,15 @@ public class UserService implements UserDetailsService {
         }
 
         // Trả về UserDetails để Spring Security sử dụng
-        return org.springframework.security.core.userdetails.User
-                .withUsername(user.getEmail())
-                .password(user.getPassword())
-                .authorities(user.getRole()) // Gán quyền của người dùng
-                .build();
+        return new org.springframework.security.core.userdetails.User(
+                user.getEmail(),
+                user.getPassword(),
+                user.getAuthorities()
+                );
+//                .withUsername(user.getEmail())
+//                .password(user.getPassword())
+//                .authorities() // Gán quyền của người dùng
+//                .build();
     }
 
     public boolean register(User user) {

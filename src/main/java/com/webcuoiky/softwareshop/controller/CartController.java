@@ -3,6 +3,7 @@ package com.webcuoiky.softwareshop.controller;
 import com.webcuoiky.softwareshop.model.Order_items;
 import com.webcuoiky.softwareshop.model.Software;
 
+import com.webcuoiky.softwareshop.model.User;
 import com.webcuoiky.softwareshop.repository.SoftwareRepository;
 import jakarta.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,7 +58,7 @@ public class CartController {
             cart.put(id, newItem);
         }
 
-        double subtotal = calculateTotal(cart);
+        String subtotal = calculateTotal(cart);
         int totalQuantity = calculateTotalQuantity(cart);
 
         session.setAttribute("cart", cart);
@@ -68,10 +70,10 @@ public class CartController {
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
 
-        return "redirect:/softwares";
+        return "software/softwares";
     }
 
-    public double calculateTotal(Map<Integer, Order_items> orderItems) {
+    public String calculateTotal(Map<Integer, Order_items> orderItems) {
         double total = 0.0;
         if (orderItems != null) {
             for (Order_items item : orderItems.values()) {
@@ -80,8 +82,10 @@ public class CartController {
                 }
             }
         }
-        return total;
+        DecimalFormat df = new DecimalFormat("0.000");
+        return df.format(total);
     }
+
 
     public int calculateTotalQuantity(Map<Integer, Order_items> cart) {
         int totalQuantity = 0;
@@ -101,7 +105,7 @@ public class CartController {
             cart.remove(id);
             session.setAttribute("cart", cart);
 
-            double subtotal = calculateTotal(cart);
+            String subtotal = calculateTotal(cart);
             int totalQuantity = calculateTotalQuantity(cart);
 
             model.addAttribute("cart", cart.values());
@@ -115,7 +119,7 @@ public class CartController {
         return "software/softwares";
     }
 
-    @RequestMapping("/checkout")
+    @GetMapping("/checkout")
     public String checkout(HttpSession session, Model model) {
         Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
 
@@ -123,7 +127,7 @@ public class CartController {
             return "redirect:/";
         }
 
-        double subtotal = calculateTotal(cart);
+        String subtotal = calculateTotal(cart);
         int totalQuantity = calculateTotalQuantity(cart);
 
         model.addAttribute("cart", cart.values());

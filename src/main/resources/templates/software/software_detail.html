@@ -79,7 +79,7 @@
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
 							<div class="price-and-available">
-								<h3 class="product-price" th:text="${software_detail.price} + '00 VND'"></h3>
+								<h3 class="product-price" th:text="${software_detail.getFormattedPrice()} + ' VND'"></h3>
 								<span class="product-available">Còn hàng</span>
 							</div>
 							<p class="product-description" th:text="${software_detail.description}">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
