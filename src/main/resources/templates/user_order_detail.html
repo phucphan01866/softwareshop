@@ -57,7 +57,7 @@
 					<!-- Order Details -->
 					<div class="col-md-12 purchased-list">
 						<div class="section-title text-center">
-							<h3 class="title">List Order</h3>
+							<h3 class="title">Order detail</h3>
 						</div>
 						<table class="customTable">
 							<thead>
@@ -80,7 +80,6 @@
 									</td>
 									<td th:text="${oI.order_quantity}">2</td>
 									<td th:text="${#dates.format(oI.order.date, 'yyyy-MM-dd')}">2</td>
-
 								</tr>
 							</tbody>
 						</table>

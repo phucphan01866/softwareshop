@@ -135,12 +135,15 @@ p.description {
         }
         .left {
             text-align: left;
-            p, img {
-                display: inline-block;
-            }
             img {
                 margin: 10px 15px;
             }
+        }
+        .inline-blockInsise > *{
+                display: inline-block;
+        }
+        .blockInside > *{
+                display: block;
         }
     }
 }

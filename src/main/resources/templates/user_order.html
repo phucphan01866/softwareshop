@@ -62,30 +62,27 @@
 						<table class="customTable">
 							<thead>
 								<tr>
-									<th>Order Id</th>
-									<th>Info</th>
-									<th>Price - Status</th>
-									<th>Date</th>
-									<th>Detail Order</th>
+									<th th:text="#{user.orderId}">Order Id</th>
+									<th th:text="#{user.orderInfo}">Info</th>
+									<th th:text="#{user.orderPriceAndStatus}">Price - Status</th>
+									<th th:text="#{user.orderDate}">Date</th>
+									<th th:text="#{user.orderDetail}">Detail Order</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="o : ${orders}">
 									<td th:text="${o.id}"></td>
-									<td>
+									<td class="left block">
 										<p th:text="#{user.orderInfo-recipientName} + ${o.name}"/>
 										<p th:text="#{user.orderInfo-recipientAddress} + ${o.address}"/>
 									</td>
 									<td>
 										<p>
-											<span th:text="${o.getFormattedCost() + ' VNĐ'}"></span>
-											<span> - </span>
-											<span th:text="${o.status == 'not paid'} ? #{user.orderStatus-notPaid} : #{user.orderStatus-paid}"></span>
-
+											<span th:text="${o.getFormattedCost() + ' VNĐ'} + ' - ' + (${o.status == 'not paid'} ? #{user.orderStatus-notPaid} : #{user.orderStatus-paid})"></span>
 										</p>
 									</td>
-									<td th:text="${#dates.format(o.date, 'yyyy-MM-dd')}">2</td>
-									<td><a th:href="@{/user_order_detail/{orderId}(orderId=${o.id})}"><button>Detail</button></a></td>
+									<td th:text="${#dates.format(o.date, 'dd-MM-yyyy')}">2</td>
+									<td><a class="btn detailBtn" th:href="@{/user-order-detail/{orderId}(orderId=${o.id})}" th:text="#{user.orderDetailBtn}">Detail</a></td>
 								</tr>
 							</tbody>
 						</table>
