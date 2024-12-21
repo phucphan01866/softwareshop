@@ -39,6 +39,7 @@ public class SecurityConfig {
                   .authorizeHttpRequests(authorize -> authorize
                           //Chỉnh lại cái , đang đảo ngược lại/**
                           //.requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
+                          .requestMatchers("/admin/product-list", "/admin/product-list/add-product").hasRole("ADMIN")
                           .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                   )
                   .formLogin(form -> form.usernameParameter("email")
@@ -62,7 +63,6 @@ public class SecurityConfig {
     }
 
     @Bean
-    @Lazy
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
