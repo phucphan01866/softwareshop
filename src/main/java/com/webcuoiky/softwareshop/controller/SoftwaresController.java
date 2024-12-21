@@ -1,7 +1,9 @@
 package com.webcuoiky.softwareshop.controller;
 
+import com.webcuoiky.softwareshop.model.Order_items;
 import com.webcuoiky.softwareshop.model.Software;
 import com.webcuoiky.softwareshop.repository.SoftwareRepository;
+import jakarta.servlet.http.HttpSession;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.text.DecimalFormat;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class SoftwaresController {
@@ -26,7 +31,20 @@ public class SoftwaresController {
     private SoftwareRepository repo;
 
     @RequestMapping("softwares")
-    public String showSoftwares(ModelMap model) {
+    public String showSoftwares(HttpSession session, ModelMap model) {
+        Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
+
+        if(cart == null) {
+            cart = new HashMap<>();
+        }
+
+        String subtotal = calculateTotal(cart);
+        int totalQuantity = calculateTotalQuantity(cart);
+
+        model.addAttribute("cart", cart != null ? cart.values() : null);
+        model.addAttribute("subtotal", subtotal);
+        model.addAttribute("totalQuantity", totalQuantity);
+
         return "software/softwares";
     }
 
@@ -40,10 +58,26 @@ public class SoftwaresController {
     }
 
     @RequestMapping("/software_detail/{id}")
-    public String softwareDetail(@PathVariable ("id") int id, ModelMap model) {
-        Session session = factory.openSession();
+    public String softwareDetail(@PathVariable ("id") int id,
+                                 HttpSession session,
+                                 ModelMap model) {
+
+        Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
+
+        if(cart == null) {
+            cart = new HashMap<>();
+        }
+
+        String subtotal = calculateTotal(cart);
+        int totalQuantity = calculateTotalQuantity(cart);
+
+        model.addAttribute("cart", cart != null ? cart.values() : null);
+        model.addAttribute("subtotal", subtotal);
+        model.addAttribute("totalQuantity", totalQuantity);
+
+
         try{
-            Software software = (Software) session.get(Software.class, id);
+            Software software = (Software) factory.openSession().get(Software.class, id);
             model.addAttribute("software_detail", software);
 
             String category = software.getCategory();
@@ -65,7 +99,31 @@ public class SoftwaresController {
             return "error";
         }
         finally{
-            session.close();
+            factory.openSession().close();
         }
     }
+
+    public String calculateTotal(Map<Integer, Order_items> orderItems) {
+        double total = 0.0;
+        if (orderItems != null) {
+            for (Order_items item : orderItems.values()) {
+                if (item.getSoftware() != null) {
+                    total += item.getSoftware().getPrice() * item.getSoftware().getQuantity();
+                }
+            }
+        }
+        DecimalFormat df = new DecimalFormat("0.000");
+        return df.format(total);
+    }
+
+
+    public int calculateTotalQuantity(Map<Integer, Order_items> cart) {
+        int totalQuantity = 0;
+        for (Order_items item : cart.values()) {
+            totalQuantity += item.getSoftware().getQuantity();
+        }
+        return totalQuantity;
+    }
+
+
 }
