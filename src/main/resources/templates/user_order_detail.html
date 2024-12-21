@@ -45,7 +45,7 @@
 		<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
-		<div th:replace="~{common/breadcrumb :: breadcrumb(null, null, 'user')}"></div>
+		<div th:replace="~{common/breadcrumb :: breadcrumb('user', null, 'orderDetail')}"></div>
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
@@ -57,29 +57,32 @@
 					<!-- Order Details -->
 					<div class="col-md-12 purchased-list">
 						<div class="section-title text-center">
-							<h3 class="title">Order detail</h3>
+							<h3 class="title" th:text="#{order.title}">Order detail</h3>
 						</div>
 						<table class="customTable">
 							<thead>
 								<tr>
-									<th>Image</th>
-									<th>Name</th>
-									<th>Cost</th>
-									<th>Quantity</th>
-									<th>Date</th>
+									<th th:text="#{order.imgTitle}">Image</th>
+									<th th:text="#{order.nameTitle}">Name</th>
+									<th th:text="#{order.quantityTitle}">Quantity</th>
+									<th th:text="#{order.costTitle}">Cost</th>
+									<th th:text="#{order.dateTitle}">Date</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="oI : ${orderItems}">
-									<td><img th:src="@{${'/img_software/' + oI.software.image}}" width="50" height="50" /></td>
+									<td>
+										<img th:src="@{${'/img_software/' + oI.software.image}}" width="50" height="50" /></td>
 									<td>
 										<p th:text="${oI.software.name}"/>
 									</td>
+									<td th:text="${oI.order_quantity}">2</td>
 									<td>
 										<p th:text="${oI.software.price * oI.order_quantity + '00 VNĐ'}"/>
 									</td>
-									<td th:text="${oI.order_quantity}">2</td>
-									<td th:text="${#dates.format(oI.order.date, 'yyyy-MM-dd')}">2</td>
+									<td th:text="${#dates.format(oI.order.date, 'yyyy-MM-dd')}">
+										2
+									</td>
 								</tr>
 							</tbody>
 						</table>

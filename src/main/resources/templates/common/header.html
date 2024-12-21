@@ -54,11 +54,11 @@
                         <div class="header-search">
                             <form th:action="@{/software/search}" method="get"><!--softwares_search đang tạm ở basicController, cần thì xóa nhé-->
                                 <select class="input-select" name="category">
-                                    <option value="" th:text="#{header.allSoft}">Tất cả</option>
-                                    <option value="office" th:text="#{category.office}">Văn phòng</option>
-                                    <option value="graphic" th:text="#{category.graphic}">Đồ họa</option>
-                                    <option value="sound" th:text="#{category.sound}">Âm thanh</option>
-                                    <option value="other" th:text="#{category.other}">PM khác</option>
+                                    <option value="" th:text="#{softwares}">Tất cả</option>
+                                    <option value="office" th:text="#{office}">Văn phòng</option>
+                                    <option value="graphic" th:text="#{graphic}">Đồ họa</option>
+                                    <option value="sound" th:text="#{sound}">Âm thanh</option>
+                                    <option value="other" th:text="#{other}">PM khác</option>
                                 </select>
                                 <input class="input" name="name" th:placeholder="#{header.searchPlaceholder}" placeholder="Nhập tên phần mềm">
                                 <button class="search-btn" th:text="#{header.searchButton}">Tìm kiếm</button>

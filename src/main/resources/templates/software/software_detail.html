@@ -45,7 +45,7 @@
 	<!-- /NAVIGATION -->
 
 		<!-- BREADCRUMB -->
-	    <div th:replace="~{common/breadcrumb :: breadcrumb('softwares', 'office', ${software_detail.name})}"></div>
+	    <div th:replace="~{common/breadcrumb :: breadcrumb('softwares', ${software_detail.category}, ${software_detail.name})}"></div>
 		<!-- /BREADCRUMB -->
 
 		<!-- SECTION -->
@@ -89,7 +89,7 @@
 									Số lượng
 									<span class="qty-span">
 									<div class="input-number" th:value="${software_detail.quantity}">
-										<input type="number">
+										<input value="1" type="number">
 										<span class="qty-up">+</span>
 										<span class="qty-down">-</span>
 									</div>
@@ -103,8 +103,7 @@
 
 							<ul class="product-links">
 								<li>Category:</li>
-								<li><a href="#">Headphones</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a th:href="@{/softwares/{category}(category=${software_detail.category})}" th:text="#{${software_detail.category}}">Category here</a></li>
 							</ul>
 
 							<ul class="product-links">

@@ -46,7 +46,7 @@ public class SoftwaresController {
         model.addAttribute("totalQuantity", totalQuantity);
 
         //Để đánh dấu cho navigation bar
-        model.addAttribute("category", "all");
+        model.addAttribute("category", "softwares");
 
 
         return "software/softwares";
