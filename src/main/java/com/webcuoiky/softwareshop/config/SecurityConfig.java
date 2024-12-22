@@ -39,7 +39,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         //Chỉnh lại cái , đang đảo ngược lại/**
                         //.requestMatchers("/").authenticated()  // Cho phép truy cập mà không cần đăng nhập
-                        .requestMatchers("/admin/product-list", "/admin/product-list/add-product").hasRole("ADMIN")
+                        .requestMatchers("/admin", "/admin/**").hasRole("ADMIN")
                         .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                 )
                 .formLogin(form -> form
@@ -76,7 +76,7 @@ public class SecurityConfig {
             // Kiểm tra vai trò ADMIN
             if (userDetails.getAuthorities().stream()
                     .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"))) {
-                response.sendRedirect("/admin/product-list");  // Chuyển hướng đến trang admin nếu là admin
+                response.sendRedirect("/admin");  // Chuyển hướng đến trang admin nếu là admin
             } else {
                 response.sendRedirect("/index");  // Người dùng bình thường, chuyển hướng đến trang chính
             }

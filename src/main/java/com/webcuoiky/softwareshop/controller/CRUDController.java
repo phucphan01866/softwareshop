@@ -28,10 +28,10 @@ public class CRUDController {
     @Autowired
     private SoftwareRepository repo;
 
-    @RequestMapping("")
+    /* @RequestMapping("")
     public  String admin() {
         return "redirect:/admin/product-list";
-    }
+    } */
 
     @GetMapping("product-list")
     public String showSoftwareList(Model model) {

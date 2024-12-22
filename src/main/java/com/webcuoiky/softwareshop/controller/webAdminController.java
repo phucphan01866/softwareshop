@@ -24,8 +24,11 @@ public class webAdminController {
 
     @RequestMapping("")
     public  String admin() {
-        return "redirect:/admin/";
+
+        return "adminPage/admin";
     }
+
+
     @RequestMapping("/admin_user_list")
     public  String adminUserList() {
 
