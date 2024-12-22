@@ -146,9 +146,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 									</div>
@@ -177,9 +185,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 									</div>
@@ -209,9 +225,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 										<!-- /product -->
@@ -241,9 +265,20 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
+
+
+
 										</div>
 										<!-- /product -->
 									</div>
@@ -452,7 +487,7 @@
 		<!-- /NEWSLETTER -->
 
 		<!-- FOOTER -->
-		<footer th:replace="~{common/footer :: footer}"/>
+		<a th:replace="~{common/footer :: footer}"/>
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->

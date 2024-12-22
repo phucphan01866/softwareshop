@@ -103,7 +103,7 @@
 	/////////////////////////////////////////
 
 	// Input number
-	$('.input-number').each(function() {
+	/*$('.input-number').each(function() {
 		var $this = $(this),
 		$input = $this.find('input[type="number"]'),
 		up = $this.find('.qty-up'),
@@ -123,7 +123,7 @@
 			$input.change();
 			updatePriceSlider($this , value)
 		})
-	});
+	});*/
 
 	var priceInputMax = document.getElementById('price-max'),
 			priceInputMin = document.getElementById('price-min');
