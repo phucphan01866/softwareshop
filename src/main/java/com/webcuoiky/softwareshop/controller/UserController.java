@@ -2,6 +2,7 @@ package com.webcuoiky.softwareshop.controller;
 
 
 import com.webcuoiky.softwareshop.model.User;
+import com.webcuoiky.softwareshop.repository.UserRepository;
 import com.webcuoiky.softwareshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -23,6 +24,7 @@ public class UserController {
     @Autowired
     @Lazy
     private UserService userService;
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -63,9 +65,6 @@ public class UserController {
     @GetMapping("/login")
     public String showLoginPage() {
 
-
-
-
         return "login"; // Trả về login.html
     }
     @PostMapping("/login")
@@ -90,6 +89,10 @@ public class UserController {
             if (userDetails.getAuthorities().stream()
                     .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"))) {
                 return "redirect:/admin/product-list";
+            } else if (userDetails.getAuthorities().stream()
+                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_DISABLE"))) {
+                redirectAttributes.addFlashAttribute("error", "Your account has been banned");
+                return "redirect:/login";
             } else {
                 return "redirect:/index"; // Trang chính cho người dùng thông thường
             }
