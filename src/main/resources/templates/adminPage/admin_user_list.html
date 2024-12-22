@@ -70,18 +70,22 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr th:each="u : ${users}">
+						<tr th:each="u : ${users}" th:if="${u.role != 'ROLE_ADMIN'}">
 							<td class="uId" th:text="${u.id}"></td>
-							<td class="uName left" >
-								<p th:text="${u.name}">User Full Name</a>
+							<td class="uName left">
+								<p th:text="${u.name}">User Full Name</p>
 							</td>
-							<td class="uEmail" th:text="${u.Mail}"></td>
-							<td class="uNumber" th:text="${u.Number}"></td>
+							<td class="uEmail" th:text="${u.email}"></td>
+							<td class="uNumber" th:text="${u.phone_number}"></td>
 							<td>
-								<select id="choices">
-									<option value="admin">Admin</option>
-									<option value="customer">customer</option>
-								</select>
+								<form th:action="@{/admin/changeRole}" method="post">
+									<input type="hidden" name="userId" th:value="${u.id}" />
+									<select name="role">
+										<option value="ROLE_USER" th:selected="${u.role == 'ROLE_USER'}">User</option>
+										<option value="ROLE_DISABLE" th:selected="${u.role == 'ROLE_DISABLE'}">Disable</option>
+									</select>
+									<button type="submit">Change</button>
+								</form>
 							</td>
 						</tr>
 						</tbody>
