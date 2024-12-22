@@ -58,19 +58,19 @@
 				<div class="row">
 					<div class="main-content register">
 						<form class="form" th:action="@{/register}" th:method="post">
-							<div class="title">Đăng ký</div>
+							<div class="title" th:text="#{register.title}">Đăng ký</div>
 							<div th:if="${error}" class="alert alert-danger">
 								<p th:text="${error}"></p>
 							</div>
-							<input type="text" class="input-field name" name="name" placeholder="Họ và tên" required />
-							<input type="email" class="input-field email" name="email" placeholder="Email" required />
-							<input type="text" class="input-field number" name="phone" placeholder="Số điện thoại" required />
-							<input type="password" class="input-field password" name="password" placeholder="Mật khẩu" required />
-							<button type="submit" class="submit-button">Tạo tài khoản</button>
+							<input type="text" class="input-field name" name="name" placeholder="Họ và tên" th:placeholder="#{register.name}" required />
+							<input type="email" class="input-field email" name="email" placeholder="Email" th:placeholder="#{register.email}" required />
+							<input type="text" class="input-field number" name="phone" placeholder="Số điện thoại" th:placeholder="#{register.number}" required />
+							<input type="password" class="input-field password" name="password" placeholder="Mật khẩu" th:placeholder="#{register.password}" required />
+							<button type="submit" class="submit-button" th:placeholder="#{register.register}" th:text="#{register.register}">Tạo tài khoản</button>
 
 							<div class="register">
-								<span class="register-text">Đã có tài khoản? </span>
-								<a class="link" th:href="@{/login}">Đăng nhập</a>
+								<span class="register-text" th:text="#{register.hadAnAccount}">Đã có tài khoản? </span>
+								<a class="link" th:href="@{/login}" th:text="#{register.login}">Đăng nhập</a>
 							</div>
 						</form>
 						<img

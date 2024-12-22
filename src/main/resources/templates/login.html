@@ -58,7 +58,7 @@
 				<div class="row">
 					<div class="main-content login">
 						<form class="form" th:action="@{/login}" method="post">
-							<div class="title">Đăng nhập</div>
+							<div class="title" th:text="#{login.title}">Đăng nhập</div>
 							<div th:if="${error != null}" class="error-message">
 								<p th:text="${error}"></p>
 							</div>
@@ -70,6 +70,7 @@
 									class="input-field email"
 									name="email"
 									placeholder="Email"
+									th:placeholder="#{login.email}"
 									required
 							/>
 							<input
@@ -77,13 +78,14 @@
 									class="input-field password"
 									name="password"
 									placeholder="Mật khẩu"
+									th:placeholder="#{login.passord}"
 									required
 							/>
-							<a class="link-forgot-password" href="#">Quên mật khẩu?</a>
-							<button class="submit-button">Đăng nhập</button>
+							<a class="link-forgot-password" href="#" th:text="#{login.forgotPassword}">Quên mật khẩu?</a>
+							<button class="submit-button" th:text="#{login.login}">Đăng nhập</button>
 							<div class="register">
-								<span class="register-text">Chưa có tài khoản? </span>
-								<a class="link-regis" th:href="@{/register}">Đăng ký</a>
+								<span class="register-text" th:text="#{login.dontHaveAccount}">Chưa có tài khoản? </span>
+								<a class="link-regis" th:href="@{/register}" th:text="#{login.register}">Đăng ký</a>
 							</div>
 						</form>
 						<img
