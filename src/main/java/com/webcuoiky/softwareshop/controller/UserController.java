@@ -81,21 +81,7 @@ public class UserController {
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
-            // Lấy thông tin người dùng hiện tại
-            org.springframework.security.core.userdetails.User userDetails =
-                    (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
-
-            // Kiểm tra vai trò của người dùng
-            if (userDetails.getAuthorities().stream()
-                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"))) {
-                return "redirect:/admin/product-list";
-            } else if (userDetails.getAuthorities().stream()
-                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_DISABLE"))) {
-                redirectAttributes.addFlashAttribute("error", "Your account has been banned");
-                return "redirect:/login";
-            } else {
-                return "redirect:/index"; // Trang chính cho người dùng thông thường
-            }
+            return "redirect:/index";
 
         } catch (IllegalArgumentException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
