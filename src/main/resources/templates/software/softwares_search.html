@@ -56,31 +56,10 @@
 				<div class="row">
 					<!-- STORE -->
 					<div id="store" class="col-md-12">
-						<!-- store top filter -->
-						<div class="store-filter clearfix">
-							<div class="store-sort">
-								<label>
-									Sort By:
-									<select class="input-select">
-										<option value="0">Popular</option>
-										<option value="1">Position</option>
-									</select>
-								</label>
-								<label>
-									Show:
-									<select class="input-select">
-										<option value="0">20</option>
-										<option value="1">50</option>
-									</select>
-								</label>
-							</div>
-						</div>
-						<!-- /store top filter -->
-
 						<!-- store products -->
 						<div class="row">
 							<!-- product -->
-							<div class="col-md-12" th:if="${softwareSearch.isEmpty()}"><p th:text="#{search.failed}">Error cant find products</p></div>
+							<div class="col-md-12 noProductError" th:if="${softwareSearch.isEmpty()}"><p th:text="#{search.noProduct}">Error cant find products</p></div>
 							<div class="col-md-4 col-xs-6" th:each="s : ${softwareSearch}">
 								<div class="product">
 									<div class="product-img">

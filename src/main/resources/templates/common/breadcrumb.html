@@ -7,7 +7,7 @@
 <body>
   <!-- BREADCRUMB -->
   <div id="breadcrumb" class="section"
-       th:fragment="breadcrumb(firstLayerPageName, secondLayerPageName, currentPage)">
+       th:fragment="breadcrumb(firstLayerPageName, secondLayerPageName, currentPage)" th:classappend="${currentPage=='login'||currentPage=='register'||currentPage=='user'||currentPage=='orderDetail'}?'no-margin-bottom':''">
     <div th:if="${currentPage!=null}" class="container">
       <div class="row">
         <div class="col-md-12">

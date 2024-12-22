@@ -3,6 +3,7 @@ package com.webcuoiky.softwareshop.model;
 import jakarta.persistence.*;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Collection;
 import java.util.Date;
 
@@ -119,8 +120,19 @@ public class Order {
     }
 
     public String getFormattedCost() {
+
+        /* Code cũ
         DecimalFormat df = new DecimalFormat("0.000");
-        return df.format(cost);
+        return df.format(cost); */
+
+        DecimalFormatSymbols customSymbol = new DecimalFormatSymbols();
+        customSymbol.setGroupingSeparator('.');//Đổi dấu "," thành "."
+
+        DecimalFormat integerFormat = new DecimalFormat("#,###", customSymbol);
+        String formatedInteger = integerFormat.format(cost);
+        System.out.println(formatedInteger + ".000");
+
+        return formatedInteger + ".000"; //1000.000 -> 1.000.000
     }
 
 }

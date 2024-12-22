@@ -102,8 +102,7 @@ public class Software {
 
         DecimalFormat integerFormat = new DecimalFormat("#,###", customSymbol);
         String formatedInteger = integerFormat.format(price);
-        System.out.println("Integer: " + formatedInteger);
 
-        return formatedInteger + ".000";
+        return formatedInteger + ".000"; //1000.000 -> 1.000.000
     }
 }

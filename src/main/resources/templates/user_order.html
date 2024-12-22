@@ -59,7 +59,8 @@
 						<div class="section-title text-center">
 							<h3 class="title">List Order</h3>
 						</div>
-						<table class="customTable">
+						<div class="col-md-12 noProductError" th:if="${orders.isEmpty()}"><p th:text="#{order.noProduct}">Error cant find products</p></div>
+						<table class="customTable" th:if="${!orders.isEmpty()}">
 							<thead>
 								<tr>
 									<th th:text="#{user.orderId}">Order Id</th>

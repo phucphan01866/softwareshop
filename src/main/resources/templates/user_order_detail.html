@@ -64,9 +64,9 @@
 								<tr>
 									<th th:text="#{order.imgTitle}">Image</th>
 									<th th:text="#{order.nameTitle}">Name</th>
+									<th th:text="#{order.priceTitle}">Unit price</th>
 									<th th:text="#{order.quantityTitle}">Quantity</th>
 									<th th:text="#{order.costTitle}">Cost</th>
-									<th th:text="#{order.dateTitle}">Date</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -76,12 +76,12 @@
 									<td>
 										<p th:text="${oI.software.name}"/>
 									</td>
-									<td th:text="${oI.order_quantity}">2</td>
 									<td>
-										<p th:text="${oI.software.price * oI.order_quantity + '00 VNĐ'}"/>
+										<p th:text="${oI.software.price==0}? #{free}:${oI.getFormattedCost(oI.software.price) + ' VNĐ'}"/>
 									</td>
-									<td th:text="${#dates.format(oI.order.date, 'yyyy-MM-dd')}">
-										2
+									<td th:text="${oI.order_quantity}">Số lượng</td>
+									<td class="right">
+										<p th:text="${oI.software.price * oI.order_quantity==0}? #{free} :${oI.getFormattedCost(oI.software.price * oI.order_quantity) + ' VNĐ'}">Tổng cộng</p>
 									</td>
 								</tr>
 							</tbody>

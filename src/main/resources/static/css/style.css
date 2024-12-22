@@ -59,6 +59,9 @@ Table OF Contents
     width: 28% !important;
 }
 
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
 .no-padding-top {
     padding-top: 0 !important;
 }
@@ -143,6 +146,12 @@ p.description {
                 margin: 10px 15px;
             }
         }
+        .right {
+            text-align: right;
+            p {
+                margin-right: 20px;
+            }
+        }
         .inline-blockInsise > *{
                 display: inline-block;
         }
@@ -175,7 +184,12 @@ p.description {
 
 }
 
-
+.noProductError {
+    padding: 0px 0px 60px 0px;
+    p {
+        text-align: center;
+    }
+}
 /*----------------------------*\
 	Typography
 \*----------------------------*/

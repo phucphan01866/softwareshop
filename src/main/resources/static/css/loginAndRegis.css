@@ -81,3 +81,6 @@
             grid-row: 1 / 2;
         }
     }
+    .login, .register {
+        margin-bottom: 30px;
+    }
