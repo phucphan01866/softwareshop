@@ -37,7 +37,8 @@ public class CartController {
                             @RequestParam(value = "sale_price", required = false) Float sale_price,
                             @RequestParam("quantity") Integer quantity,
                             HttpSession session,
-                            Model model) {
+                            Model model,
+                            HttpServletRequest request) {
 
         Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
 
@@ -75,6 +76,12 @@ public class CartController {
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
 
+        String referer = request.getHeader("Referer");
+
+        if (referer != null) {
+            return "redirect:" + referer;
+        }
+
         return "redirect:/softwares";
     }
 
@@ -102,7 +109,7 @@ public class CartController {
 
 
     @PostMapping("softwares/removeFromCart")
-    public String removeFromCart(@RequestParam("id") Integer id, HttpSession session, Model model) {
+    public String removeFromCart(@RequestParam("id") Integer id, HttpSession session, Model model, HttpServletRequest request) {
 
         Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
 
@@ -120,6 +127,13 @@ public class CartController {
 
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
+
+
+        String referer = request.getHeader("Referer");
+
+        if (referer != null) {
+            return "redirect:" + referer;
+        }
 
         return "software/softwares";
     }
@@ -143,7 +157,7 @@ public class CartController {
     }
 
     @PostMapping("/updateQuantity")
-    public String updateProductQuantity(@RequestParam("id") Long softwareId,
+    public String updatesoftwareQuantity(@RequestParam("id") Long softwareId,
                                         @RequestParam(value = "increase_software_quantity_btn", required = false) String increaseBtn,
                                         @RequestParam(value = "decrease_software_quantity_btn", required = false) String decreaseBtn,
                                         Model model,
