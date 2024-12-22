@@ -92,12 +92,12 @@
 							<div class="order-products">
 								<div class="order-col" th:each="item: ${cart}">
 									<div th:text="${item.software.name + ' x ' + item.software.quantity}">1x Product Name Goes Here</div>
-									<div th:text="${item.software.price * item.software.quantity} + '00 VNĐ'">$980.00</div>
+									<div th:text="${item.software.price==0}?#{price.free}:${item.software.price * item.software.quantity + '00 VNĐ'}">$980.00</div>
 								</div>
 							</div>
 							<div class="order-col">
 								<div th:text="#{checkOut.shipping}">Shipping</div>
-								<div><strong>FREE</strong></div>
+								<div><strong th:text="#{free}">FREE</strong></div>
 							</div>
 							<div class="order-col">
 								<div th:text="#{checkOut.total}"><strong>TOTAL</strong></div>
@@ -108,10 +108,6 @@
 								<input type="radio" name="payment" id="payment" checked="checked">
 								<label for="payment" th:utext="#{checkOut.paypalPay}"></label>
 							</div>
-						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="terms">
-							<label for="terms" th:utext="#{checkOut.termAndConditions}"></label>
 						</div>
 						<button type="submit" class="primary-btn order-submit" th:text="#{checkOut.placeOrder}">Place order</button>
 					</div>

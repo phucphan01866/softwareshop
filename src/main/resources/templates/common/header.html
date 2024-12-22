@@ -87,7 +87,7 @@
                                                 <h3 class="product-name"><a href="#">[[${item.software.name}]]</a></h3>
                                                 <h4 class="product-price">
                                                     <span class="qty" th:text="${item.software.quantity}">1x</span>
-                                                    <span th:text="${item.software.getFormattedPrice() + ' VND'}">$0.00</span>
+                                                    <span th:text="${item.software.price==0}?#{price.free}:${item.software.getFormattedPrice() + ' VND'}">$0.00</span>
                                                 </h4>
                                             </div>
 

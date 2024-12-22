@@ -137,7 +137,7 @@
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}"></a></h3>
-												<h4 class="product-price" th:text ="${s.getFormattedPrice()} + ' VND'">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.price==0}?#{price.free}:${s.getFormattedPrice() + ' Đ'}">$980.00</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -168,7 +168,7 @@
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}">product name goes here</a></h3>
-												<h4 class="product-price" th:text ="${s.price=='0.0'?'Miễn Phí':'s.price'}">$980.00</h4>
+												<h4 class="product-price" th:text ="${s.price==0}?#{price.free}:${s.getFormattedPrice() + ' Đ'}">$980.00</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -200,7 +200,7 @@
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}">product name goes here</a></h3>
-												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.price==0}?#{price.free}:${s.getFormattedPrice() + ' Đ'}">$980.00</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -232,7 +232,7 @@
 											<div class="product-body">
 												<p class="product-category" th:text ="${s.category}">Category</p>
 												<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${s.id})}" th:text ="${s.name}">product name goes here</a></h3>
-												<h4 class="product-price" th:text ="${s.price}">$980.00 <del class="product-old-price">$990.00</del></h4>
+												<h4 class="product-price" th:text ="${s.price==0}?#{price.free}:${s.getFormattedPrice() + ' Đ'}">$980.00</h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -340,7 +340,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}"></p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text = "${sw.price + '00 đ'}">$990.0</h4>
+										<h4 class="product-price" th:text="${sw.price==0}?#{price.free}:${sw.getFormattedPrice() + ' Đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -356,7 +356,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text ="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text="${sw.price + '00 đ'}">$990.0</h4>
+										<h4 class="product-price" th:text="${sw.price==0}?#{price.free}:${sw.getFormattedPrice() + ' Đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -385,7 +385,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text = "${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text = "${sw.name}">product name goes here</a></h3>
-										<h4 class="product-price" th:text = "${sw.price + '00 đ'}">$990.00</h4>
+										<h4 class="product-price" th:text="${sw.price==0}?#{price.free}:${sw.getFormattedPrice() + ' Đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
@@ -400,7 +400,7 @@
 									<div class="product-body">
 										<p class="product-category" th:text="${sw.category}">Category</p>
 										<h3 class="product-name" ><a th:href="@{/software_detail/{id}(id=${sw.id})}" th:text="${sw.name}"></a></h3>
-										<h4 class="product-price" th:text="${sw.price + '00 đ'}">$990.00</h4>
+										<h4 class="product-price" th:text="${sw.price==0}?#{price.free}:${sw.getFormattedPrice() + ' Đ'}">$990.00</h4>
 									</div>
 								</div>
 								<!-- /product widget -->

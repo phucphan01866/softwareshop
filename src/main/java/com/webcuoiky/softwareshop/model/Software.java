@@ -3,7 +3,10 @@ package com.webcuoiky.softwareshop.model;
 import jakarta.persistence.*;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.Collection;
+import java.util.Locale;
 
 @Entity
 @Table (name="software")
@@ -94,7 +97,13 @@ public class Software {
     }
 
     public String getFormattedPrice() {
-        DecimalFormat df = new DecimalFormat("0.000");
-        return df.format(price);
+        DecimalFormatSymbols customSymbol = new DecimalFormatSymbols();
+        customSymbol.setGroupingSeparator('.');//Đổi dấu "," thành "."
+
+        DecimalFormat integerFormat = new DecimalFormat("#,###", customSymbol);
+        String formatedInteger = integerFormat.format(price);
+        System.out.println("Integer: " + formatedInteger);
+
+        return formatedInteger + ".000";
     }
 }
