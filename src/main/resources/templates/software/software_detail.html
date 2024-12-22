@@ -105,7 +105,7 @@
 									<input type="hidden" name="image" th:value="${software_detail.image}">
 									<input type="hidden" name="price" th:value="${software_detail.price}">
 									<input type="hidden" name="sale_price" th:value="${software_detail.sale_price != null ? software_detail.sale_price : ''}">
-									<input type="" name="quantity" id="quantity" value="1" min="1">
+									<input type="hidden" name="quantity" id="quantity" value="1" min="1">
 									<div class="add-to-cart-btn-div" >
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 									</div>
