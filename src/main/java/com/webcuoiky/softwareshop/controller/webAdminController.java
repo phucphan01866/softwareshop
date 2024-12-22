@@ -9,8 +9,11 @@ public class webAdminController {
 
     @RequestMapping("")
     public  String admin() {
-
         return "redirect:/admin/";
+    }
+    @RequestMapping("/user")
+    public  String adminUser() {
+        return "admin_user_list";
     }
 //    @RequestMapping("/product-list/update-product")
 //    public  String productUpdate() {

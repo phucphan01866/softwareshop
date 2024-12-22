@@ -65,7 +65,7 @@
 					<!-- /Product main img -->
 
 					<!-- Product details -->
-					<div class="col-md-4 col-md-push-1">
+					<div class="col-md-3 col-3-plus-05 col-md-push-1">
 						<div class="product-details">
 							<h2 class="product-name" th:text="${software_detail.name}"></h2>
 							<div>
@@ -81,27 +81,29 @@
 								<h3 class="product-price" th:text="${software_detail.price==0} ? #{price.free} : ${software_detail.getFormattedPrice() + ' VNĐ'}"></h3>
 								<span class="product-available" th:text="#{software_detail.inStock}">Còn hàng</span>
 							</div>
+
 							<div class="add-to-cart">
 								<div class="qty-label">
-									Số lượng
+									<label for="quantity" class="qty-label-label">Số lượng</label>
 									<span class="qty-span">
 									<div class="input-number" th:value="${software_detail.quantity}">
-										<input value="1" type="number">
+										<input id="quantity" value="1" type="number">
 										<span class="qty-up">+</span>
 										<span class="qty-down">-</span>
 									</div>
 									</span>
 								</div>
+								<ul class="product-links">
+									<li th:text="#{category.category}">Category:</li>
+									<li><a th:href="@{/softwares/{category}(category=${software_detail.category})}" th:text="#{${software_detail.category}}">Category here</a></li>
+								</ul>
 								<div class="add-to-cart-btn-div" >
 									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 								</div>
 							</div>
 
 
-							<ul class="product-links">
-								<li th:text="#{category.category}">Category:</li>
-								<li><a th:href="@{/softwares/{category}(category=${software_detail.category})}" th:text="#{${software_detail.category}}">Category here</a></li>
-							</ul>
+
 						</div>
 					</div>
 					<!-- /Product details -->
