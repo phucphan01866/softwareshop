@@ -70,7 +70,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr th:each="u : ${users}" th:if="${u.role != 'ROLE_ADMIN'}">
+						<tr th:each="u : ${users}">
 							<td class="uId" th:text="${u.id}"></td>
 							<td class="uName left">
 								<p th:text="${u.name}">User Full Name</p>
@@ -82,7 +82,7 @@
 									<input type="hidden" name="userId" th:value="${u.id}" />
 									<select name="role">
 										<option value="ROLE_USER" th:selected="${u.role == 'ROLE_USER'}">User</option>
-										<option value="ROLE_DISABLE" th:selected="${u.role == 'ROLE_DISABLE'}">Disable</option>
+										<option value="ROLE_ADMIN" th:selected="${u.role == 'ROLE_ADMIN'}">Admin</option>
 									</select>
 									<button type="submit">Change</button>
 								</form>

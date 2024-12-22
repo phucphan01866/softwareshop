@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 
 @Configuration
@@ -42,10 +42,11 @@ public class SecurityConfig {
                         .requestMatchers("/admin/product-list", "/admin/product-list/add-product").hasRole("ADMIN")
                         .anyRequest().permitAll()  // Các yêu cầu khác yêu cầu người dùng đăng nhập
                 )
-                .formLogin(form -> form.usernameParameter("email")
+                .formLogin(form -> form
+                        .usernameParameter("email")
                         .loginPage("/login")
-                        .defaultSuccessUrl("/index", true)
                         .permitAll()
+                        .successHandler(customAuthenticationSuccessHandler()) // Sử dụng handler tùy chỉnh
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
@@ -67,4 +68,18 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+    // Tạo AuthenticationSuccessHandler tùy chỉnh
+    private AuthenticationSuccessHandler customAuthenticationSuccessHandler() {
+        return (request, response, authentication) -> {
+            org.springframework.security.core.userdetails.User userDetails = (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+
+            // Kiểm tra vai trò ADMIN
+            if (userDetails.getAuthorities().stream()
+                    .anyMatch(authority -> authority.getAuthority().equals("ROLE_ADMIN"))) {
+                response.sendRedirect("/admin/product-list");  // Chuyển hướng đến trang admin nếu là admin
+            } else {
+                response.sendRedirect("/index");  // Người dùng bình thường, chuyển hướng đến trang chính
+            }
+        };
+    }
 }
