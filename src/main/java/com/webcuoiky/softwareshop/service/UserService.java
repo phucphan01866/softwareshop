@@ -9,12 +9,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+import java.util.List;
+
 @Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserService(UserRepository userRepository,@Lazy BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
@@ -49,8 +51,19 @@ public class UserService implements UserDetailsService {
         System.out.println("Mật khẩu mã hóa (lưu vào DB): " + encodedPassword);
         user.setPassword(encodedPassword);
 
-        // Lưu vào database
-        user.setRole("ROLE_USER");
+        // Cài đặt quyền admin nếu là admin
+        if(List.of("duong@admin.com",
+                        "phuc@admin.com",
+                        "quang@admin.com",
+                        "hoang@admin.com",
+                        "phat@admin.com")
+                .contains(user.getEmail())) {
+            user.setRole("ROLE_ADMIN");
+        }
+        else {
+            user.setRole("ROLE_USER");
+        }
+
         userRepository.save(user);
         return true;
     }
@@ -68,6 +81,10 @@ public class UserService implements UserDetailsService {
             throw new IllegalArgumentException("Mật khẩu không chính xác");
         }
         return user;
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
 }
