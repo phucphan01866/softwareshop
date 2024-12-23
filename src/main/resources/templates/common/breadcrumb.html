@@ -11,14 +11,14 @@
     <div th:if="${currentPage!=null}" class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="breadcrumb-header" th:if="${#messages.msgOrNull(currentPage)}!=null" th:text="#{${currentPage}}">Tên trang Notnull</h3>
-          <h3 class="breadcrumb-header" th:if="${#messages.msgOrNull(currentPage)}==null" th:text="${currentPage}">Tên trang Null</h3>
+          <h3 class="breadcrumb-header" th:if="${#messages.msgOrNull(currentPage)}!=null" th:text="#{${currentPage}}">Tên trang th Notnull</h3>
+          <h3 class="breadcrumb-header" th:if="${#messages.msgOrNull(currentPage)}==null" th:text="${currentPage}">Tên trang th Null</h3>
           <ul class="breadcrumb-tree">
             <li>
               <a th:href="@{/index}" th:text="#{navigation.homePage}">Home</a>
             </li>
             <li th:if="${(firstLayerPageName != null && currentPage != 'softwares')}">
-              <a th:href="@{/{firstLayer}(firstLayer=${firstLayerPageName})}"
+              <a th:href="@{/{firstLayerPageName}(firstLayer=${firstLayerPageName})}"
                  th:text="#{${firstLayerPageName}}">
                 First Layer
               </a>

@@ -39,11 +39,11 @@ public class SoftwareDTO {
         this.image = image;
     }
 
-    public @NotEmpty(message = "Tên không được bỏ trống") String getName() {
+    public @NotEmpty(message = "Tên ko được bỏ trống") String getName() {
         return name;
     }
 
-    public void setName(@NotEmpty(message = "Tên không được bỏ trống") String name) {
+    public void setName(@NotEmpty() String name) {
         this.name = name;
     }
 
