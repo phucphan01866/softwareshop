@@ -128,21 +128,21 @@ public class CRUDController {
                 String uploadDir = "src/main/resources/static/img_software/";
                 Path oldImagePath = Paths.get(uploadDir + software.getImage());
 
-            try{
-                Files.delete(oldImagePath);
-            }
-            catch (Exception ex){
-                System.out.println("Exception" + ex.getMessage());
-            }
-            MultipartFile image = softwareDTO.getImage();
-            Date createDate = new Date();
-            String storageFileName = createDate.getTime() + "_" + image.getOriginalFilename();
+                try{
+                    Files.delete(oldImagePath);
+                }
+                catch (Exception ex){
+                    System.out.println("Exception" + ex.getMessage());
+                }
+                MultipartFile image = softwareDTO.getImage();
+                Date createDate = new Date();
+                String storageFileName = createDate.getTime() + "_" + image.getOriginalFilename();
 
-            try (InputStream inputStream = image.getInputStream()) {
-                Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
-                        StandardCopyOption.REPLACE_EXISTING);
-            }
-            software.setImage(storageFileName);
+                try (InputStream inputStream = image.getInputStream()) {
+                    Files.copy(inputStream, Paths.get(uploadDir + storageFileName),
+                            StandardCopyOption.REPLACE_EXISTING);
+                }
+                software.setImage(storageFileName);
             }
             software.setName(softwareDTO.getName());
             software.setDescription(softwareDTO.getDescription());

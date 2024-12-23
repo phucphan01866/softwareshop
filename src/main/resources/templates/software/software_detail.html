@@ -79,7 +79,7 @@
 							</div>
 							<div class="price-and-available">
 								<h3 class="product-price" th:text="${software_detail.price==0} ? #{price.free} : ${software_detail.getFormattedPrice() + ' VNĐ'}"></h3>
-								<span class="product-available" th:text="#{software_detail.inStock}">Còn hàng</span>
+								<span class="product-available" th:text="${software_detail.quantity==0}?#{software_detail.outStock}:#{software_detail.inStock}">Còn hàng</span>
 							</div>
 							<div class="add-to-cart">
 								<div class="qty-label">

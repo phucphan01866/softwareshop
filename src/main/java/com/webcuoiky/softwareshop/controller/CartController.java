@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -94,8 +95,14 @@ public class CartController {
                 }
             }
         }
-        DecimalFormat df = new DecimalFormat("0.000");
-        return df.format(total);
+
+        DecimalFormatSymbols customSymbol = new DecimalFormatSymbols();
+        customSymbol.setGroupingSeparator('.');//Đổi dấu "," thành "."
+
+        DecimalFormat integerFormat = new DecimalFormat("#,###", customSymbol);
+        String formatedInteger = integerFormat.format(total);
+
+        return formatedInteger + ".000"; //1000.000 -> 1.000.000
     }
 
 

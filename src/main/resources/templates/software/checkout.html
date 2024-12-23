@@ -90,7 +90,7 @@
 								<div class="order-products">
 									<div class="order-col" th:each="item: ${cart}">
 										<div th:text="${item.software.name + ' x ' + item.software.quantity}">1x Product Name Goes Here</div>
-										<div th:text="${item.software.price==0}?#{price.free}:${item.software.price * item.software.quantity + '00 VNĐ'}">$980.00</div>
+										<div th:text="${item.software.price==0}?#{price.free}:${item.software.getFormattedPrice(item.software.price * item.software.quantity) + ' VNĐ'}">$980.00</div>
 									</div>
 								</div>
 								<div class="order-col">

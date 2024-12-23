@@ -105,4 +105,13 @@ public class Software {
 
         return formatedInteger + ".000"; //1000.000 -> 1.000.000
     }
+    public String getFormattedPrice(float Price) {
+        DecimalFormatSymbols customSymbol = new DecimalFormatSymbols();
+        customSymbol.setGroupingSeparator('.');//Đổi dấu "," thành "."
+
+        DecimalFormat integerFormat = new DecimalFormat("#,###", customSymbol);
+        String formatedInteger = integerFormat.format(Price);
+
+        return formatedInteger + ".000"; //1000.000 -> 1.000.000
+    }
 }
