@@ -4,6 +4,8 @@ package com.webcuoiky.softwareshop.controller;
 import com.webcuoiky.softwareshop.model.User;
 import com.webcuoiky.softwareshop.repository.UserRepository;
 import com.webcuoiky.softwareshop.service.UserService;
+import jakarta.validation.Valid;
+import org.apache.tomcat.util.modeler.BaseAttributeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,6 +13,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,25 +33,36 @@ public class UserController {
     private AuthenticationManager authenticationManager;
 
     @GetMapping("/register")
-    public String registerUser() {
+    public String registerUser(Model model) {
+        model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerUser(@RequestParam String name,
+    public String registerUser(@Valid User user, BindingResult bindingResult,
+                               @RequestParam String name,
                                @RequestParam String email,
                                @RequestParam String phone,
                                @RequestParam String password,
                                RedirectAttributes redirectAttributes) {
 
-        User user = new User();
+        // Kiểm tra lỗi validation
+        if (bindingResult.hasErrors()) {
+            // In ra các lỗi cụ thể để kiểm tra
+            bindingResult.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+            redirectAttributes.addFlashAttribute("error", "Dữ liệu không hợp lệ!");
+            return "redirect:/register";
+        }
+
+        // Tạo đối tượng User từ dữ liệu form
         user.setName(name);
         user.setEmail(email);
         user.setPhone_number(phone);
         user.setPassword(password);
-        user.setRole("ROLE_USER");
+        user.setRole("ROLE_USER"); // Gán role cho user
 
         try {
+            // Gọi service để đăng ký user
             boolean isRegistered = userService.register(user);
             if (isRegistered) {
                 redirectAttributes.addFlashAttribute("message", "Đăng ký thành công!");
@@ -62,6 +77,8 @@ public class UserController {
         }
     }
 
+
+
     @GetMapping("/login")
     public String showLoginPage() {
 
@@ -74,7 +91,13 @@ public class UserController {
                             ) {
         try {
 
-            //User user = userService.login(email, password);
+            // Kiểm tra xem email đã tồn tại chưa
+            if (!userService.isEmailExist(email)) {
+                redirectAttributes.addFlashAttribute("error", "Email chưa được đăng ký.");
+                return "redirect:/login?error";
+            }
+
+            // Nếu email tồn tại, thực hiện xác thực
             UsernamePasswordAuthenticationToken authenticationToken =
                     new UsernamePasswordAuthenticationToken(email, password);
 
@@ -87,7 +110,6 @@ public class UserController {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
             return "redirect:/login";
         }
-
     }
 
 }
