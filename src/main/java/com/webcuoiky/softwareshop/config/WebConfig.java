@@ -18,13 +18,14 @@ public class WebConfig implements WebMvcConfigurer {
         slr.setDefaultLocale(new Locale("vi"));
         return slr;
     }
-//Nhớ giải nghĩa mấy cái này
+
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("lang"); // Tham số URL dùng để thay đổi ngôn ngữ, ví dụ: ?lang=vi
         return lci;
     }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
