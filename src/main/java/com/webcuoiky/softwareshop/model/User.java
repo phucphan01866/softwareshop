@@ -1,6 +1,7 @@
 package com.webcuoiky.softwareshop.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,10 +16,21 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Sử dụng auto-increment cho id
     private Integer id;
+
+    @NotEmpty(message = "Họ và tên không được để trống.")
     private String name;
+
+    @NotEmpty(message = "Email không được để trống.")
+    @Email(message = "Email không đúng định dạng.")
     private String email;
+
+    @NotEmpty(message = "Mật khẩu không được để trống.")
+    @Size(min = 6, message = "Mật khẩu phải có ít nhất 6 ký tự.")
     private String password;
+
+
     private String phone_number;
+
     private String role;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Collection<Order> orders;

@@ -2,7 +2,6 @@ package com.webcuoiky.softwareshop.service;
 
 import com.webcuoiky.softwareshop.model.User;
 import com.webcuoiky.softwareshop.repository.UserRepository;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -83,8 +82,11 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
-    }
+//    public boolean getUserByEmail(String email) {
+//        return userRepository.findByEmail(email);
+//    }
 
+    public boolean isEmailExist(String email) {
+        return userRepository.findByEmail(email) != null;
+    }
 }
