@@ -92,6 +92,7 @@ public class CRUDController {
     {
         try{
             Software software = repo.findById(id).get();
+            //model.addAttribute("softwareDTO", software);
 
             SoftwareDTO softwareDTO = new SoftwareDTO();
             softwareDTO.setName(software.getName());

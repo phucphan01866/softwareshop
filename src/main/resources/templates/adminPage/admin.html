@@ -47,15 +47,11 @@
 		<nav th:replace="~{common/navigation :: navigation(null)}"/>
 		<!-- /NAVIGATION -->
 
-		<!-- BREADCRUMB -->
-		<div th:replace="~{common/breadcrumb :: breadcrumb(null, null, 'login')}"></div>
-		<!-- /BREADCRUMB -->
-
 		<!-- SECTION -->
 		<div class="section admin">
 			<!-- container -->
 			<div class="container">
-				<p id="title">QUẢN LÝ WEBSITE</p>
+				<h3 id="title">QUẢN LÝ WEBSITE</h3>
 				<div id="mainAdmin">
 					<div class="btnSection">
 						<a class="linkImg" th:href="@{admin/product-list}"><img th:src="@{/img/boxIcon.png}" alt=""></a>
