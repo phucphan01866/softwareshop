@@ -52,7 +52,7 @@
                     <!-- SEARCH BAR -->
                     <div class="col-md-7">
                         <div class="header-search">
-                            <form th:action="@{/software/search}" method="get"><!--softwares_search đang tạm ở basicController, cần thì xóa nhé-->
+                            <form th:action="@{/software/search}" method="get">
                                 <select class="input-select" name="category">
                                     <option value="" th:text="#{softwares}">Tất cả</option>
                                     <option value="office" th:text="#{office}">Văn phòng</option>
@@ -103,8 +103,7 @@
                                         <h5 th:text="#{header.subTotal} +': ' + ${subtotal != null ? subtotal : '0'}+ ' VNĐ'">SUBTOTAL: $0.00</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#" th:text="#{header.viewCart}">View Cart</a>
-                                        <a th:href="@{/checkout}" th:text="#{header.checkOut}">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a th:href="@{/checkout}" th:text="#{header.viewCart}">viewCart <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>

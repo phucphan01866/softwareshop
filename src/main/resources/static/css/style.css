@@ -750,25 +750,25 @@ header {
   color: #2B2D42;
 }
 
+.cart-btns {
+    display: flex;
+    justify-content: center;
+}
+
 .cart-dropdown .cart-btns {
   margin: 0px -17px -17px;
 }
 
 .cart-dropdown .cart-btns>a {
   display: inline-block;
-  width: calc(50% - 0px);
+  width: 100%;
   padding: 12px;
-  background-color: #D10024;
+  background-color: #1e1f29;
   color: #FFF;
   text-align: center;
   font-weight: 700;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
-}
-
-.cart-dropdown .cart-btns>a:first-child {
-  margin-right: -4px;
-  background-color: #1e1f29;
 }
 
 .cart-dropdown .cart-btns>a:hover {
