@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface SoftwareRepository extends JpaRepository<Software, Integer> {
-
     List<Software> findByCategory(String category);
     List<Software> findByPrice(Double  price);      //YES
     List<Software> findByPriceNot(Double  price); //NOT
@@ -21,5 +20,4 @@ public interface SoftwareRepository extends JpaRepository<Software, Integer> {
     List<Software> findByNameContaining(@Param("name") String name);
 
     List<Software> findByNameContainingAndCategory(String name, String category);
-
 }
