@@ -5,8 +5,10 @@ import com.webcuoiky.softwareshop.model.Software;
 
 import com.webcuoiky.softwareshop.model.User;
 import com.webcuoiky.softwareshop.repository.SoftwareRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ import java.util.Map;
 public class CartController {
 
     @Autowired
+    SessionFactory factory;
+
+    @Autowired
     private SoftwareRepository softwareRepository;
 
     @PostMapping("softwares/addToCart")
@@ -32,7 +37,8 @@ public class CartController {
                             @RequestParam(value = "sale_price", required = false) Float sale_price,
                             @RequestParam("quantity") Integer quantity,
                             HttpSession session,
-                            Model model) {
+                            Model model,
+                            HttpServletRequest request) {
 
         Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
 
@@ -70,6 +76,12 @@ public class CartController {
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
 
+        String referer = request.getHeader("Referer");
+
+        if (referer != null) {
+            return "redirect:" + referer;
+        }
+
         return "redirect:/softwares";
     }
 
@@ -97,7 +109,7 @@ public class CartController {
 
 
     @PostMapping("softwares/removeFromCart")
-    public String removeFromCart(@RequestParam("id") Integer id, HttpSession session, Model model) {
+    public String removeFromCart(@RequestParam("id") Integer id, HttpSession session, Model model, HttpServletRequest request) {
 
         Map<Integer, Order_items> cart = (Map<Integer, Order_items>) session.getAttribute("cart");
 
@@ -115,6 +127,13 @@ public class CartController {
 
         List<Software> softwares = softwareRepository.findAll();
         model.addAttribute("softwares", softwares);
+
+
+        String referer = request.getHeader("Referer");
+
+        if (referer != null) {
+            return "redirect:" + referer;
+        }
 
         return "software/softwares";
     }
@@ -137,8 +156,57 @@ public class CartController {
         return "software/checkout";
     }
 
+    @PostMapping("/updateQuantity")
+    public String updatesoftwareQuantity(@RequestParam("id") Long softwareId,
+                                        @RequestParam(value = "increase_software_quantity_btn", required = false) String increaseBtn,
+                                        @RequestParam(value = "decrease_software_quantity_btn", required = false) String decreaseBtn,
+                                        Model model,
+                                        HttpServletRequest request) {
+
+        // Retrieve the cart from the session
+        Map<Long, Order_items> cart = (Map<Long, Order_items>) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new HashMap<>();
+        }
+
+
+        Order_items cartItem = cart.get(softwareId);
+        if (cartItem != null) {
+            if (increaseBtn != null) {
+                cartItem.setOrder_quantity(cartItem.getOrder_quantity() + 1);
+            } else if (decreaseBtn != null && cartItem.getOrder_quantity() > 1) {
+                cartItem.setOrder_quantity(cartItem.getOrder_quantity() - 1);
+            }
+        } else {
+
+            Software software = (Software) factory.openSession().get(Software.class, softwareId);
+            cartItem = new Order_items();
+            cartItem.setSoftware(software);
+            cartItem.setOrder_quantity(1);
+            cart.put(softwareId, cartItem);
+        }
+
+
+        Software software = (Software) factory.openSession().get(Software.class, softwareId);
+        model.addAttribute("software_detail", software);
+        model.addAttribute("order_items", cartItem);
+
+
+        request.getSession().setAttribute("cart", cart);
+
+        return "software/software_detail";
+    }
+
+
+
     @RequestMapping("/thankyou")
     public String thankyou() {
         return "software/thankyou";
     }
+
+
+
+
+
+
 }

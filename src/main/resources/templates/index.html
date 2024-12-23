@@ -146,9 +146,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 									</div>
@@ -177,9 +185,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 									</div>
@@ -209,9 +225,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 										<!-- /product -->
@@ -241,9 +265,17 @@
 													<i class="fa fa-star"></i>
 												</div>
 											</div>
+											<form th:action="@{/softwares/addToCart}" method="post">
+												<input type="hidden" name="id" th:value="${s.id}">
+												<input type="hidden" name="name" th:value="${s.name}">
+												<input type="hidden" name="image" th:value="${s.image}">
+												<input type="hidden" name="price" th:value="${s.price}">
+												<input type="hidden" name="sale_price" th:value="${s.sale_price != null ? s.sale_price : ''}">
+												<input type="hidden" name="quantity" value="1" min="1">
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> <p style="display: inline-block" th:text="#{button.addToCart}">add to cart</p></button>
 											</div>
+											</form>
 										</div>
 										<!-- /product -->
 									</div>
@@ -261,52 +293,6 @@
 			<!-- /container -->
 		</div>
 		<!-- /SECTION -->
-
-		<!-- HOT DEAL SECTION -->
-		<div id="hot-deal" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="hot-deal">
-							<ul class="hot-deal-countdown">
-								<li>
-									<div>
-										<h3>02</h3>
-										<span>Days</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>10</h3>
-										<span>Hours</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>34</h3>
-										<span>Mins</span>
-									</div>
-								</li>
-								<li>
-									<div>
-										<h3>60</h3>
-										<span>Secs</span>
-									</div>
-								</li>
-							</ul>
-							<h2 class="text-uppercase">hot deal this week</h2>
-							<p>New Collection Up to 50% OFF</p>
-							<a class="primary-btn cta-btn" href="#">Shop now</a>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /HOT DEAL SECTION -->
 
 		<!-- SECTION SẢN PHẨM NỔI BẬT-->
 		<div class="section">
@@ -415,44 +401,8 @@
 		</div>
 		<!-- /SECTION -->
 
-		<!-- NEWSLETTER -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
-
 		<!-- FOOTER -->
-		<footer th:replace="~{common/footer :: footer}"/>
+		<a th:replace="~{common/footer :: footer}"/>
 		<!-- /FOOTER -->
 
 		<!-- jQuery Plugins -->
